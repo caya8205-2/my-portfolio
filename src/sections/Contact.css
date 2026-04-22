@@ -1,0 +1,116 @@
+.contact {
+  background: var(--bg2);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  margin-bottom: 80px;
+}
+
+.contact-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 6px;
+}
+
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.contact-heading em {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.contact-sub {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-link:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.contact-link:hover {
+  padding-left: 12px;
+}
+
+.link-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.link-handle {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--text);
+  flex: 1;
+  transition: color 0.2s;
+}
+
+.contact-link:hover .link-handle {
+  color: var(--accent);
+}
+
+.link-arrow {
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.contact-link:hover .link-arrow {
+  color: var(--accent);
+  transform: translate(4px, -4px);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}

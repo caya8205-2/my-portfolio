@@ -1,0 +1,135 @@
+.projects-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.projects-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 6px;
+}
+
+.projects-body {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.projects-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 400;
+  color: var(--text);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.3s ease;
+  cursor: pointer;
+}
+
+.project-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.project-item:hover {
+  padding-left: 16px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.project-name {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 400;
+  color: var(--text);
+  flex: 1;
+  transition: color 0.2s;
+}
+
+.project-item:hover .project-name {
+  color: var(--accent);
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.project-status {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.project-year {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.project-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 600px;
+  font-weight: 300;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project-item:hover .tag {
+  border-color: var(--border2);
+  color: var(--text-dim);
+}

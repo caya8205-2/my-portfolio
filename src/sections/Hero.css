@@ -1,0 +1,163 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+/* Animated vertical lines background */
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-evenly;
+  pointer-events: none;
+  transition: transform 0.6s ease;
+}
+
+.hero-line {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--border) 30%, var(--border) 70%, transparent);
+  animation: lineFade 3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes lineFade {
+  to { opacity: 1; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  margin-bottom: 48px;
+}
+
+.name-first {
+  font-size: clamp(80px, 14vw, 180px);
+  color: var(--text);
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.name-last {
+  font-size: clamp(80px, 14vw, 180px);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border2);
+  animation: fadeUp 0.8s ease 0.4s both;
+  position: relative;
+}
+
+.name-dot {
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+
+.hero-sub {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.hero-role {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--text-dim);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.hero-role em {
+  color: var(--text);
+  font-style: italic;
+}
+
+.hero-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--border2), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-meta strong {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.meta-sep {
+  color: var(--border2);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
