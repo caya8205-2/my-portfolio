@@ -49,6 +49,14 @@ export default function Hero() {
           <span>Based in <strong>Yogyakarta, ID</strong></span>
           <span className="meta-sep">—</span>
           <span>Open to remote</span>
+          <span className="meta-sep">—</span>
+          <a
+            href="/CV-Heryana-Romansyah.pdf"
+            download="CV-Heryana-Romansyah.pdf"
+            className="hero-cv-link"
+            target="_blank"
+            rel="noreferrer"
+            data-cursor>Download CV ↗</a>
         </div>
       </div>
     </section>

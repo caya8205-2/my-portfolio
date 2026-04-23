@@ -18,6 +18,19 @@
   --font-mono: 'DM Mono', monospace;
 }
 
+html.light-mode {
+  --bg: #f5f3ee;
+  --bg2: #ebe8e0;
+  --surface: #e0ded6;
+  --border: #d1cfc7;
+  --border2: #b8b6af;
+  --text: #1a1a1a;
+  --text-muted: #666666;
+  --text-dim: #444444;
+  --accent: #92a600;
+  --white: #111111;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;

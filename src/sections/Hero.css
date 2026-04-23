@@ -161,3 +161,16 @@
     transform: translateY(0);
   }
 }
+
+.hero-cv-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--border2);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s, color 0.2s;
+}
+
+.hero-cv-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}

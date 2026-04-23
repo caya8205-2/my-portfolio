@@ -65,3 +65,28 @@
 .nav-cta:hover {
   opacity: 0.85;
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  background: var(--surface);
+}
