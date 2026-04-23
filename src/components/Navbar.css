@@ -90,3 +90,15 @@
   color: var(--text);
   background: var(--surface);
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 24px;
+  }
+  .navbar.scrolled {
+    padding: 12px 24px;
+  }
+  .nav-links {
+    display: none;
+  }
+}

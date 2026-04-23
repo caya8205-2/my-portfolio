@@ -32,3 +32,9 @@
   left: -30px;
   border-color: var(--accent);
 }
+
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}

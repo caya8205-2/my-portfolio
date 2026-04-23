@@ -77,3 +77,14 @@
   text-transform: uppercase;
   color: var(--text-muted);
 }
+
+@media (max-width: 768px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
