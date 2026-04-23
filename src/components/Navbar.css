@@ -18,6 +18,10 @@
   border-color: var(--border);
 }
 
+html.light-mode .navbar.scrolled {
+  background: rgba(245, 243, 238, 0.92);
+}
+
 .nav-logo {
   font-family: var(--font-display);
   font-size: 28px;
