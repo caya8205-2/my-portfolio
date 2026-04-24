@@ -1,0 +1,45 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.preloader.done {
+  transform: translateY(-100%);
+}
+
+.preloader-content {
+  position: relative;
+}
+
+.preloader-text-wrapper {
+  overflow: hidden;
+}
+
+.preloader-text {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 10vw, 120px);
+  color: var(--text);
+  line-height: 1;
+  transform: translateY(100%);
+  animation: slideUpReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.preloader-dot {
+  color: var(--accent);
+}
+
+@keyframes slideUpReveal {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

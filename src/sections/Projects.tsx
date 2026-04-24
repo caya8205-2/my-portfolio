@@ -26,7 +26,7 @@ export default function Projects() {
   return (
     <section className="projects" id="projects">
       <div className="container">
-        <div ref={ref} className="projects-inner reveal">
+        <div ref={ref} className="projects-inner reveal-left">
           <div className="projects-label">
             <span>03</span>
             <span>Projects</span>

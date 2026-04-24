@@ -40,11 +40,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
-        <footer className="footer">
-          <span>© 2026 Heryana Romansyah P. Built with React + Vite.</span>
-          <span>Designed &amp; developed by me.</span>
-        </footer>
       </div>
     </section>
   );

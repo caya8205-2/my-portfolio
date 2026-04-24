@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section className="about" id="about">
       <div className="container">
-        <div ref={ref} className="about-inner reveal">
+        <div ref={ref} className="about-inner reveal-scale">
           <div className="about-label">
             <span>01</span>
             <span>About</span>
@@ -22,13 +22,13 @@ export default function About() {
 
             <div className="about-text">
               <p>
-                Hi, I'm Ryan — a developer based in Yogyakarta with a passion
+                Hi, I'm Ryan, a developer based in Yogyakarta with a passion
                 for building clean, functional, and well-crafted software.
               </p>
               <p>
                 When not writing code, you'll find me tinkering with AI tools,
                 playing games, or obsessing over the details that most people
-                won't notice — but will definitely feel.
+                won't notice, but will definitely feel.
               </p>
             </div>
 
