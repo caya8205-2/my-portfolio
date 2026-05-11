@@ -13,10 +13,18 @@ const projects = [
   {
     num: "02",
     name: "Discord Bot",
-    desc: "AI-powered Discord bot designed for interactive conversations and automation. Supports multi-server deployment with persistent memory, enabling contextual responses and improved user engagement. Built with a modular system for scalability and flexible feature expansion.",
-    tags: ["Node.js", "Discord.js", "LLM API", "fs"],
+    desc: "Modular multi-purpose Discord bot — a sophisticated system refactored from a 5.4k line monolithic script. Features an AI persona with persistent memory and a custom data pipeline for LLM fine-tuning (LoRA/Unsloth) using conversation logs. Includes a high-quality music player with Spotify support and robust state management.",
+    tags: ["Node.js", "Discord.js", "Fine-tuning", "Unsloth", "LoRA", "Groq API", "Gemini Vision", "Spotify API", "yt-dlp"],
     status: "Personal",
     year: "2024",
+  },
+  {
+    num: "03",
+    name: "ai-platform",
+    desc: "Unified LLM gateway and developer platform — a monorepo providing a standardized interface for Groq, Anthropic, and OpenAI. Features a persistent chat playground with session management, BullMQ-based async automation, and a real-time analytics dashboard for monitoring token usage and latency.",
+    tags: ["Node.js", "TypeScript", "Express", "BullMQ", "Redis", "React", "Vite", "Recharts"],
+    status: "Personal",
+    year: "2026",
   },
 ];
 

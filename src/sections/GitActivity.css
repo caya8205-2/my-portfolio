@@ -1,0 +1,147 @@
+.git-activity-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.git-activity-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 6px;
+}
+
+.git-activity-body {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.git-activity-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.git-activity-heading em {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.git-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+.git-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.group-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.group-title svg {
+  color: var(--accent);
+}
+
+.commit-list, .star-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.commit-item, .star-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.3s ease;
+}
+
+.commit-item:first-child, .star-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.commit-item:hover, .star-item:hover {
+  padding-left: 12px;
+}
+
+.commit-msg {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.commit-repo, .star-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+
+.commit-repo:hover, .star-name:hover {
+  opacity: 0.7;
+}
+
+.commit-date, .star-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.star-desc {
+  line-height: 1.6;
+}
+
+.loading-skeleton {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  padding: 24px 0;
+}
+
+@media (max-width: 1024px) {
+  .git-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .git-activity-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .git-activity-label {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .git-activity-heading {
+    font-size: 32px;
+  }
+}

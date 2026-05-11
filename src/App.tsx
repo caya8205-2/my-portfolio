@@ -2,6 +2,7 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
+import GitActivity from "./sections/GitActivity";
 import Contact from "./sections/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -22,6 +23,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <GitActivity />
         <Contact />
       </main>
       <Footer />
