@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="hero-content container">
         <div className="hero-tag">
           <span className="tag-dot" />
-          available for work
+          currently working as Web Engineer — System Designer at Banyumedia Digital
         </div>
 
         <h1 className="hero-name">
