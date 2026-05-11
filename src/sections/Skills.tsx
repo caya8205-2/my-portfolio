@@ -5,7 +5,7 @@ const skills = {
   "Frontend": ["React", "TypeScript", "Vite", "CSS / Tailwind", "Svelte"],
   "Backend": ["Node.js", "Express", "REST APIs", "PostgreSQL"],
   "Tooling": ["Git", "Linux", "Rust / Tauri", "Figma"],
-  "Currently learning": ["Rust", "WebAssembly", "Three.js"],
+  "Currently learning": ["Rust", "Tauri", "PHP", "WebAssembly", "Three.js"],
 };
 
 export default function Skills() {

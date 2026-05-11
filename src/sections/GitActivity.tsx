@@ -33,32 +33,38 @@ export default function GitActivity() {
         const eventsRes = await fetch(`https://api.github.com/users/${username}/events/public`);
         const eventsData = await eventsRes.json();
         
-        const pushEvents = eventsData
-          .filter((e: any) => e.type === "PushEvent")
-          .slice(0, 5)
-          .map((e: any) => ({
-            id: e.id,
-            repo: e.repo.name,
-            message: e.payload.commits[0]?.message || "Pushed changes",
-            date: new Date(e.created_at).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            }),
-            url: `https://github.com/${e.repo.name}/commit/${e.payload.head}`,
-          }));
+        let pushEvents: Commit[] = [];
+        if (Array.isArray(eventsData)) {
+          pushEvents = eventsData
+            .filter((e: any) => e.type === "PushEvent")
+            .slice(0, 5)
+            .map((e: any) => ({
+              id: e.id,
+              repo: e.repo?.name || "Unknown Repo",
+              message: e.payload?.commits?.[0]?.message || "Pushed changes",
+              date: new Date(e.created_at).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              }),
+              url: e.repo?.name ? `https://github.com/${e.repo.name}/commit/${e.payload?.head}` : "#",
+            }));
+        }
 
         // Fetch Starred Repos
         const starsRes = await fetch(`https://api.github.com/users/${username}/starred`);
         const starsData = await starsRes.json();
         
-        const starredRepos = starsData.slice(0, 5).map((s: any) => ({
-          id: s.id,
-          name: s.full_name,
-          desc: s.description || "No description provided.",
-          url: s.html_url,
-          language: s.language,
-        }));
+        let starredRepos: Star[] = [];
+        if (Array.isArray(starsData)) {
+          starredRepos = starsData.slice(0, 5).map((s: any) => ({
+            id: s.id,
+            name: s.full_name,
+            desc: s.description || "No description provided.",
+            url: s.html_url,
+            language: s.language,
+          }));
+        }
 
         setCommits(pushEvents);
         setStars(starredRepos);
