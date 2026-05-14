@@ -10,6 +10,7 @@ import BackToTop from "./components/BackToTop";
 import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export default function App() {
   return (
