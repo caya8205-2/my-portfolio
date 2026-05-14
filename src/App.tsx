@@ -17,6 +17,7 @@ export default function App() {
     <>
       <Preloader />
       <Analytics />
+      <SpeedInsights />
       <Cursor />
       <Navbar />
       <main>
