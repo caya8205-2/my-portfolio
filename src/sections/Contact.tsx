@@ -14,7 +14,7 @@ export default function Contact() {
       <div className="container">
         <div ref={ref} className="contact-inner reveal">
           <div className="contact-label">
-            <span>05</span>
+            <span>06</span>
             <span>Contact</span>
           </div>
 

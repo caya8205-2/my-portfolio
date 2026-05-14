@@ -36,7 +36,7 @@ export default function Projects() {
       <div className="container">
         <div ref={ref} className="projects-inner reveal-left">
           <div className="projects-label">
-            <span>03</span>
+            <span>04</span>
             <span>Projects</span>
           </div>
 

@@ -1,0 +1,111 @@
+.approach {
+  background: var(--bg);
+}
+
+.approach-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.approach-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 6px;
+}
+
+.approach-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.approach-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--text);
+}
+
+.approach-heading em {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.approach-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 920px;
+}
+
+.approach-copy p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.approach-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 100%;
+  padding: 24px;
+  background: linear-gradient(180deg, var(--surface), transparent 150%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.approach-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border2);
+  background: var(--surface);
+}
+
+.approach-card-title {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.approach-card-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+@media (max-width: 1024px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .approach-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .approach-copy {
+    grid-template-columns: 1fr;
+  }
+}

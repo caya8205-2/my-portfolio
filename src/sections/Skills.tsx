@@ -3,8 +3,9 @@ import "./Skills.css";
 
 const skills = {
   "Frontend": ["React", "TypeScript", "Vite", "CSS / Tailwind", "Svelte"],
-  "Backend": ["Node.js", "Express", "REST APIs", "PostgreSQL"],
-  "Tooling": ["Git", "Linux", "Rust / Tauri", "Figma"],
+  "Backend": ["Node.js", "Express", "REST APIs", "PostgreSQL", "Supabase", "Firebase"],
+  "AI": ["Google Colab", "Python", "Jupyter Notebook", "Unsloth"],
+  "Tooling": ["Git", "Linux", "Electron", "Figma", "VS Code", "Postman", "Docker", "WSL", "Laragon"],
   "Currently learning": ["Rust", "Tauri", "PHP", "WebAssembly", "Three.js"],
 };
 

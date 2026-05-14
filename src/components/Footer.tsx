@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-const links = ["about", "skills", "projects", "contact"];
+const links = ["about", "skills", "approach", "projects", "contact"];
 const social = [
   { label: "GitHub", href: "https://github.com/caya8205-2" },
   { label: "Email", href: "mailto:yannz.2005@gmail.com" },

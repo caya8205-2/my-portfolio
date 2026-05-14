@@ -83,7 +83,7 @@ export default function GitActivity() {
       <div className="container">
         <div ref={ref} className="git-activity-inner reveal-left">
           <div className="git-activity-label">
-            <span>04</span>
+            <span>05</span>
             <span>Activity</span>
           </div>
 
