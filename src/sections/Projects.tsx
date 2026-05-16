@@ -26,6 +26,14 @@ const projects = [
     status: "Personal",
     year: "2026",
   },
+  {
+    num: "04",
+    name: "capcay-llm",
+    desc: "Lightweight LLM client package extracted from the ai-platform monorepo, specifically the @ai-platform/core layer. Provides one TypeScript interface for Groq, Anthropic, and OpenAI, with chat, streaming responses, environment-based defaults, configurable generation options, and provider-aware error handling.",
+    tags: ["TypeScript", "Node.js", "npm Package", "Groq", "Anthropic", "OpenAI", "Streaming", "LLM SDK"],
+    status: "Package",
+    year: "2026",
+  },
 ];
 
 export default function Projects() {
