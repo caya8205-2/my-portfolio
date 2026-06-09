@@ -9,6 +9,12 @@ const projects = [
     tags: ["Typescript", "React", "Vite", "Tailwind", "Node.js", "Fastify", "Rust", "Tauri", "SQLite", "youtubei.js", "yt-dlp", "Spotify Web API", "LRClib", "Music Player", "Prefetch", "Smart Autoqueue", "Cache Learning", "Software Engineering"],
     status: "Personal",
     year: "2026",
+    links: {
+      website: "https://noctune.web.id",
+      github: "https://github.com/caya8205-2/noctune",
+      playstore: "",
+      appstore: "",
+    }
   },
   {
     num: "02",

@@ -35,7 +35,7 @@ export default function About() {
             <div className="about-stats">
               {[
                 { num: "3+", label: "Years building" },
-                { num: "5+", label: "Projects" },
+                { num: "10+", label: "Projects" },
                 { num: "∞", label: "Cups of coffee" },
               ].map((s) => (
                 <div key={s.label} className="stat">

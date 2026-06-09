@@ -4,6 +4,8 @@ import "./Contact.css";
 const links = [
   { label: "GitHub", handle: "@caya8205-2", href: "https://github.com/caya8205-2" },
   { label: "Email", handle: "yannz.2005@gmail.com", href: "mailto:yannz.2005@gmail.com" },
+  { label: "Instagram", handle: "@ryannotfound404", href: "https://instagram.com/ryannotfound404" },
+  { label: "Whatsapp", handle: "081287110249", href: "https://wa.me/6281287110249" },
 ];
 
 export default function Contact() {

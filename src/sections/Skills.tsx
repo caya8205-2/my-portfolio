@@ -2,11 +2,11 @@ import { useReveal } from "../hooks/useReveal";
 import "./Skills.css";
 
 const skills = {
-  "Frontend": ["React", "TypeScript", "Vite", "CSS / Tailwind", "Svelte"],
-  "Backend": ["Node.js", "Express", "REST APIs", "PostgreSQL", "Supabase", "Firebase"],
-  "AI": ["Google Colab", "Python", "Jupyter Notebook", "Unsloth"],
-  "Tooling": ["Git", "Linux", "Electron", "Figma", "VS Code", "Postman", "Docker", "WSL", "Laragon"],
-  "Currently learning": ["Rust", "Tauri", "PHP", "WebAssembly", "Three.js"],
+  "Frontend": ["React", "TypeScript", "Vite", "CSS / Tailwind", "Svelte", "PHP"],
+  "Backend": ["TypeScript", "Fastify", "Node.js", "Express", "Rust", "Tauri", "Electron"],
+  "Database": ["REST APIs", "PostgreSQL", "SQLite", "Supabase", "Firebase", "Redis"],
+  "AI": ["Google Colab", "Python", "Jupyter Notebook", "Unsloth", "Huggingface", "Ollama", "OpenClaw", "Codex", "SD WebUI", "ComfyUI"],
+  "Tooling": ["Git", "Linux", "Figma", "VS Code", "Postman", "Docker", "WSL", "Laragon"],
 };
 
 export default function Skills() {
