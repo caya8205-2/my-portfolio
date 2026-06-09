@@ -144,3 +144,25 @@
     gap: 12px;
   }
 }
+
+.project-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.project-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.project-link:hover {
+  color: var(--accent);
+}

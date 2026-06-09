@@ -23,6 +23,12 @@ const projects = [
     tags: ["Agent", "Personal Assistant", "OpenClaw", "Whatsapp / Baileys", "TypeScript", "shadcn", "Tailwind", "PostgreSQL", "Redis", "Fastify", "BullMQ", "pgvector"],
     status: "Personal / Work Project",
     year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/nara",
+      playstore: "",
+      appstore: "",
+    }
   },
   {
     num: "03",
@@ -31,6 +37,12 @@ const projects = [
     tags: ["Node.js", "PNPM", "TypeScript", "Supabase", "LLM APIs", "REST API", "PDF Generation", "Markdown Generation"],
     status: "Team Project",
     year: "2025",
+    links: {
+      website: "",
+      github: "https://github.com/yudha556/planify",
+      playstore: "",
+      appstore: "",
+    }
   },
   {
     num: "04",
@@ -39,6 +51,12 @@ const projects = [
     tags: ["Agentic Automation", "AI Orchestration", "OpenClaw", "Coding Agent", "Skills", "Prompt Engineering", "Javascript", "Markdown", "CLI"],
     status: "Personal",
     year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/crewctl",
+      playstore: "",
+      appstore: "",
+    }
   },
   {
     num: "05",
@@ -47,6 +65,12 @@ const projects = [
     tags: ["Node.js", "TypeScript", "Express", "BullMQ", "Redis", "React", "Vite", "Recharts"],
     status: "Personal",
     year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/ai-platform",
+      playstore: "",
+      appstore: "",
+    }
   },
   {
     num: "06",
@@ -55,6 +79,12 @@ const projects = [
     tags: ["TypeScript", "Node.js", "npm Package", "Groq", "Anthropic", "OpenAI", "Streaming", "LLM SDK"],
     status: "Personal",
     year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/capcay-llm",
+      playstore: "",
+      appstore: "",
+    }
   },
   {
     num: "07",
@@ -63,6 +93,12 @@ const projects = [
     tags: ["Node.js", "Discord.js", "Fine-tuning", "Unsloth", "LoRA", "Groq API", "Gemini Vision", "Spotify API", "yt-dlp"],
     status: "Personal",
     year: "2024",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/bot-ditos",
+      playstore: "",
+      appstore: "",
+    }
   },
 ];
 
@@ -100,6 +136,20 @@ export default function Projects() {
                       <span key={t} className="tag">{t}</span>
                     ))}
                   </div>
+                  {p.links && (p.links.website || p.links.github) && (
+                    <div className="project-links">
+                      {p.links.website && (
+                        <a href={p.links.website} target="_blank" rel="noreferrer" className="project-link" data-cursor>
+                          Website ↗
+                        </a>
+                      )}
+                      {p.links.github && (
+                        <a href={p.links.github} target="_blank" rel="noreferrer" className="project-link" data-cursor>
+                          GitHub ↗
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
