@@ -166,3 +166,22 @@
 .project-link:hover {
   color: var(--accent);
 }
+
+.project-case-study {
+  align-self: flex-start;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 4px;
+  transition: color .2s, border-color .2s;
+}
+
+.project-case-study span { color: var(--accent); }
+
+.project-case-study:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
