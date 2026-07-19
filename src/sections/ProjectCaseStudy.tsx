@@ -38,11 +38,11 @@ export const caseStudies: Record<string, CaseStudy> = {
     approach: "The app combines local persistence with background prefetch, cache learning, smart autoqueue, lyrics, and a diversified Nightly Mix. The desktop shell keeps the experience quick and native while the backend handles resolution and playback intelligence.",
     outcome: "A deliberate, personal music workspace that makes the technical complexity behind playback almost invisible.",
     images: [
-      { src: "/noctune/noctune-full-player.png", alt: "Noctune full player view", caption: "The listening surface — playback, queue, and context in one focused view." },
-      { src: "/noctune/noctune-wrapped.png", alt: "Noctune Wrapped listening statistics", caption: "Wrapped turns listening history into a focused personal listening recap — plays, hours, artists, tracks, and daily activity." },
-      { src: "/noctune/noctune-matcher-debug.png", alt: "Noctune Matcher Debug match cache", caption: "Matcher Debug makes resolution behavior inspectable, with a searchable cache of source matches and their quality signals." },
-      { src: "/noctune/noctune-discover-weekly.png", alt: "Noctune Discover Weekly smart playlist", caption: "Discover Weekly keeps fresh finds in a dedicated smart playlist, with the current track and playback context always in view." },
-      { src: "/noctune/noctune-cache-settings.png", alt: "Noctune cache settings", caption: "Playback settings expose the system's local-first behavior without making it feel technical." },
+      { src: "/noctune/noctune-full-player.webp", alt: "Noctune full player view", caption: "The listening surface — playback, queue, and context in one focused view." },
+      { src: "/noctune/noctune-wrapped.webp", alt: "Noctune Wrapped listening statistics", caption: "Wrapped turns listening history into a focused personal listening recap — plays, hours, artists, tracks, and daily activity." },
+      { src: "/noctune/noctune-matcher-debug.webp", alt: "Noctune Matcher Debug match cache", caption: "Matcher Debug makes resolution behavior inspectable, with a searchable cache of source matches and their quality signals." },
+      { src: "/noctune/noctune-discover-weekly.webp", alt: "Noctune Discover Weekly smart playlist", caption: "Discover Weekly keeps fresh finds in a dedicated smart playlist, with the current track and playback context always in view." },
+      { src: "/noctune/noctune-cache-settings.webp", alt: "Noctune cache settings", caption: "Playback settings expose the system's local-first behavior without making it feel technical." },
     ],
     links: [
       { label: "Visit Noctune ↗", href: "https://noctune.web.id" },
@@ -64,30 +64,30 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Setup Dashboard",
         description: "A clear operational starting point: essential setup status, shortcuts, and the next actions to take before the system goes live.",
-        images: [{ src: "/erp-tumbuh/erp-setup-dashboard.png", alt: "ERP setup dashboard" }],
+        images: [{ src: "/erp-tumbuh/erp-setup-dashboard.webp", alt: "ERP setup dashboard" }],
         featured: true,
       },
       {
         title: "Go Live & Financial Books",
         description: "A guided go-live flow paired with financial-book setup, keeping the business workspace and financial boundaries explicit from day one.",
         images: [
-          { src: "/erp-tumbuh/erp-golive.png", alt: "ERP go live setup" },
-          { src: "/erp-tumbuh/erp-financial-book.png", alt: "ERP financial book setup" },
+          { src: "/erp-tumbuh/erp-golive.webp", alt: "ERP go live setup" },
+          { src: "/erp-tumbuh/erp-financial-book.webp", alt: "ERP financial book setup" },
         ],
       },
       {
         title: "Business Identity",
         description: "Business details are collected as a lightweight, step-by-step setup flow that makes a dense configuration task approachable.",
         images: [
-          { src: "/erp-tumbuh/erp-identitas-bisnis.png", alt: "ERP business identity setup" }
+          { src: "/erp-tumbuh/erp-identitas-bisnis.webp", alt: "ERP business identity setup" }
         ],
       },
       {
         title: "Create SPH",
         description: "A structured purchasing flow for creating a supplier price quotation while preserving readable line-item detail and review context.",
         images: [
-          { src: "/erp-tumbuh/erp-create-sph.png", alt: "ERP create supplier price quotation" },
-          { src: "/erp-tumbuh/erp-sph-draft.png", alt: "ERP supplier price quotation list" },
+          { src: "/erp-tumbuh/erp-create-sph.webp", alt: "ERP create supplier price quotation" },
+          { src: "/erp-tumbuh/erp-sph-draft.webp", alt: "ERP supplier price quotation list" },
           { src: "/erp-tumbuh/erp-sph-preview.webp", alt: "ERP supplier price quotation print preview" },
         ],
       },
@@ -95,27 +95,27 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "Sales Order",
         description: "A sales-order flow that turns an approved quotation into a confirmed order, carrying the commercial context forward without repeating setup work.",
         images: [
-          { src: "/erp-tumbuh/erp-so-draft.png", alt: "ERP sales order draft" },
-          { src: "/erp-tumbuh/erp-create-so.png", alt: "ERP create sales order" },
+          { src: "/erp-tumbuh/erp-so-draft.webp", alt: "ERP sales order draft" },
+          { src: "/erp-tumbuh/erp-create-so.webp", alt: "ERP create sales order" },
         ],
       },
       {
         title: "Delivery Order",
         description: "A delivery workflow that prepares a confirmed sales order for shipment, captures delivery details, and produces a clear document preview.",
         images: [
-          { src: "/erp-tumbuh/erp-do-draft.png", alt: "ERP delivery order draft" },
-          { src: "/erp-tumbuh/erp-create-do.png", alt: "ERP create delivery order" },
-          { src: "/erp-tumbuh/erp-do-preview.png", alt: "ERP delivery order print preview" },
+          { src: "/erp-tumbuh/erp-do-draft.webp", alt: "ERP delivery order draft" },
+          { src: "/erp-tumbuh/erp-create-do.webp", alt: "ERP create delivery order" },
+          { src: "/erp-tumbuh/erp-do-preview.webp", alt: "ERP delivery order print preview" },
         ],
       },
       {
         title: "Create Invoice",
         description: "An invoice workflow that moves from a clear draft state into a focused creation form without losing the financial context.",
         images: [
-          { src: "/erp-tumbuh/erp-create-invoice.png", alt: "ERP create invoice step 1" },
-          { src: "/erp-tumbuh/erp-create-invoice 2.png", alt: "ERP create invoice step 2" },
-          { src: "/erp-tumbuh/erp-create-invoice 3.png", alt: "ERP create invoice step 3" },
-          { src: "/erp-tumbuh/erp-invoice-draft.png", alt: "ERP invoice draft" },
+          { src: "/erp-tumbuh/erp-create-invoice.webp", alt: "ERP create invoice step 1" },
+          { src: "/erp-tumbuh/erp-create-invoice-2.webp", alt: "ERP create invoice step 2" },
+          { src: "/erp-tumbuh/erp-create-invoice-3.webp", alt: "ERP create invoice step 3" },
+          { src: "/erp-tumbuh/erp-invoice-draft.webp", alt: "ERP invoice draft" },
           { src: "/erp-tumbuh/erp-invoice-preview.webp", alt: "ERP customer invoice print preview" },
         ],
       },
@@ -132,9 +132,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     approach: "The CLI uses youtubei.js for media discovery and bundles FFmpeg for processing. It offers direct commands for fast users, interactive prompts for occasional users, and an npm distribution for a low-friction install path.",
     outcome: "A focused open-source utility that turns a tedious media workflow into one dependable command.",
     images: [
-      { src: "/avpull/avpull-help.png", alt: "AVPull help command in terminal", caption: "The primary command surface makes formats, quality, output folders, and batch downloads immediately discoverable." },
-      { src: "/avpull/avpull-download-success.png", alt: "AVPull completed download in terminal", caption: "A clear completion state confirms the downloaded media and keeps the workflow reliable from command to file." },
-      { src: "/avpull/avpull-landing-page.png", alt: "AVPull landing page download options", caption: "The landing page provides a low-friction entry point for installing AVPull and choosing the right download workflow." },
+      { src: "/avpull/avpull-help.webp", alt: "AVPull help command in terminal", caption: "The primary command surface makes formats, quality, output folders, and batch downloads immediately discoverable." },
+      { src: "/avpull/avpull-download-success.webp", alt: "AVPull completed download in terminal", caption: "A clear completion state confirms the downloaded media and keeps the workflow reliable from command to file." },
+      { src: "/avpull/avpull-landing-page.webp", alt: "AVPull landing page download options", caption: "The landing page provides a low-friction entry point for installing AVPull and choosing the right download workflow." },
     ],
     links: [
       { label: "Visit landing page ↗", href: "https://caya8205-2.github.io/avpull" },
