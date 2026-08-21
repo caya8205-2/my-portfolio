@@ -28,6 +28,21 @@ const projects = [
   },
   {
     num: "03",
+    name: "Pockt",
+    desc: "High-performance, self-hosted personal finance companion and disposable income engine. Calculates real-time spendable cash with single-owner auth, bilingual ID/EN interface, Hallmark OKLCH dual theme system, payday allocation, automated test suites, and a dedicated MCP server adapter allowing AI agents (Hermes, Claude Code, Antigravity, Codex) to manage and track finances autonomously.",
+    tags: ["SvelteKit", "TypeScript", "Fastify", "MCP Server", "Agentic Finance", "Drizzle ORM", "SQLite", "Tailwind CSS", "Turborepo", "Vitest", "Playwright"],
+    status: "Personal",
+    year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/pockt",
+      playstore: "",
+      appstore: "",
+    },
+    caseStudy: "/projects/pockt",
+  },
+  {
+    num: "04",
     name: "AVPull",
     desc: "Open-source Node.js and Bun CLI for downloading YouTube audio or video and converting it to formats such as MP3, WAV, MP4, and WebM. Bundles FFmpeg, supports batch downloads and interactive prompts, and is published as an npm package.",
     tags: ["Node.js", "Bun", "CLI", "npm Package", "youtubei.js", "FFmpeg", "Media Processing", "Open Source"],
@@ -42,7 +57,22 @@ const projects = [
     caseStudy: "/projects/avpull",
   },
   {
-    num: "04",
+    num: "05",
+    name: "ferrum-scan",
+    desc: "Ultra-fast multithreaded repository scanner and health inspector CLI tool built in Rust. Scans directories in parallel within milliseconds, provides LOC breakdown, duplicate file detection with content hashing, storage breakdown, and Git health analysis with markdown/JSON exports.",
+    tags: ["Rust", "CLI", "Rayon", "Clap", "Code Metrics", "Multi-threading", "Git Analytics", "Open Source"],
+    status: "Personal",
+    year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/ferrum-scan",
+      playstore: "",
+      appstore: "",
+    },
+    caseStudy: "/projects/ferrum-scan",
+  },
+  {
+    num: "06",
     name: "nara",
     desc: "Local-first operational assistant for task management, scheduling, reporting, and business workflow automation. It pairs a self-hosted TypeScript backend with mobile and desktop clients, plus an OpenClaw-powered agent layer and a simulation harness for safely testing natural-language task flows.",
     tags: ["Agent", "Personal Assistant", "OpenClaw", "Whatsapp / Baileys", "TypeScript", "shadcn", "Tailwind", "PostgreSQL", "Redis", "Fastify", "BullMQ", "pgvector"],
@@ -56,7 +86,7 @@ const projects = [
     }
   },
   {
-    num: "05",
+    num: "07",
     name: "Planify",
     desc: "AI-powered project documentation system — a full-stack web app that generates structured software docs (PRD, SRS, user flow, architecture diagrams) using LLMs. Features a modular AI prompt system supporting multiple domains, coin-based usage system, PDF export, and scalable backend architecture.",
     tags: ["Node.js", "PNPM", "TypeScript", "Supabase", "LLM APIs", "REST API", "PDF Generation", "Markdown Generation"],
@@ -70,7 +100,7 @@ const projects = [
     }
   },
   {
-    num: "06",
+    num: "08",
     name: "crewctl",
     desc: "State-driven orchestration engine for software engineering agents. Coordinates planner, implementer, auditor, and QC workflows through deterministic state transitions, structured artifacts, quality gates, OpenClaw-compatible runtime adapters, and an MCP server for agent-tool integration.",
     tags: ["Agentic Automation", "AI Orchestration", "OpenClaw", "Coding Agent", "Skills", "Prompt Engineering", "Javascript", "Markdown", "CLI"],
@@ -84,7 +114,7 @@ const projects = [
     }
   },
   {
-    num: "07",
+    num: "09",
     name: "ai-platform",
     desc: "Unified LLM gateway and developer platform — a monorepo providing a standardized interface for Groq, Anthropic, and OpenAI. Features a persistent chat playground with session management, BullMQ-based async automation, and a real-time analytics dashboard for monitoring token usage and latency.",
     tags: ["Node.js", "TypeScript", "Express", "BullMQ", "Redis", "React", "Vite", "Recharts"],
@@ -98,7 +128,7 @@ const projects = [
     }
   },
   {
-    num: "08",
+    num: "10",
     name: "capcay-llm",
     desc: "Lightweight LLM client package extracted from the ai-platform monorepo, specifically the @ai-platform/core layer. Provides one TypeScript interface for Groq, Anthropic, and OpenAI, with chat, streaming responses, environment-based defaults, configurable generation options, and provider-aware error handling.",
     tags: ["TypeScript", "Node.js", "npm Package", "Groq", "Anthropic", "OpenAI", "Streaming", "LLM SDK"],
@@ -112,7 +142,7 @@ const projects = [
     }
   },
   {
-    num: "09",
+    num: "11",
     name: "Discord Bot",
     desc: "Modular multi-purpose Discord bot refactored from a 5.4k-line monolith. Features an AI persona with persistent memory, a conversation-data pipeline for LoRA/Unsloth fine-tuning, and a resilient Spotify-enabled music player with cache safeguards for reliable YouTube playback.",
     tags: ["Node.js", "Discord.js", "Fine-tuning", "Unsloth", "LoRA", "Groq API", "Gemini Vision", "Spotify API", "yt-dlp"],

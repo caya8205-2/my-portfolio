@@ -2,11 +2,13 @@ import { useReveal } from "../hooks/useReveal";
 import "./Skills.css";
 
 const skills = {
-  "Frontend": ["React", "TypeScript", "Vite", "CSS / Tailwind", "Svelte", "PHP"],
-  "Backend": ["TypeScript", "Fastify", "Node.js", "Express", "Rust", "Tauri", "Electron"],
-  "Database": ["REST APIs", "PostgreSQL", "SQLite", "Supabase", "Firebase", "Redis"],
-  "AI": ["Google Colab", "Python", "Jupyter Notebook", "Unsloth", "Huggingface", "Ollama", "OpenClaw", "Codex", "SD WebUI", "ComfyUI"],
-  "Tooling": ["Git", "Linux", "Figma", "VS Code", "Postman", "Docker", "WSL", "Laragon"],
+  "Fullstack": ["TypeScript", "Bun", "Laravel", "Svelte", "PNPM", "Turborepo"],
+  "Frontend": ["React", "Vite", "Tailwind CSS", "Shadcn UI", "Shield IO"],
+  "Backend": ["Node.js", "Rust", "PHP"],
+  "Systems": ["Fastify", "Express", "Docker", "PostgreSQL", "SQLite", "MySQL", "REST API", "Redis", "Nginx", "Apache"],
+  "Desktop & Mobile": ["Tauri", "Electron", "Flutter", "Dart", "Capacitor"],
+  "AI": ["Hermes", "OpenClaw", "Ollama", "Google Colab", "Python", "Jupyter Notebook", "Unsloth", "Huggingface", "SD WebUI", "A1111", "ComfyUI"],
+  "Tooling": ["Git", "Linux", "Figma", "VS Code", "WSL", "Laragon", "XAMPP", "Obsidian"],
 };
 
 export default function Skills() {

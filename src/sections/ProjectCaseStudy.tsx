@@ -137,8 +137,98 @@ export const caseStudies: Record<string, CaseStudy> = {
       { src: "/avpull/avpull-landing-page.webp", alt: "AVPull landing page download options", caption: "The landing page provides a low-friction entry point for installing AVPull and choosing the right download workflow." },
     ],
     links: [
-      { label: "Visit landing page ↗", href: "https://caya8205-2.github.io/avpull" },
+      { label: "Visit landing page ↗", href: "https://avpull.caya.web.id" },
       { label: "View source ↗", href: "https://github.com/caya8205-2/avpull" },
+    ],
+  },
+  pockt: {
+    name: "Pockt",
+    eyebrow: "Personal finance & agentic system / 2026",
+    year: "2026",
+    summary: "A high-performance, self-hosted personal finance tracker and disposable income engine with a dedicated MCP server — enabling AI agents (Hermes, Claude Code, Codex, Antigravity, Copilot, Cursor etc.) to manage and track your personal finances.",
+    role: "Architecture, full-stack engineering, and interaction design",
+    stack: ["SvelteKit 5", "TypeScript", "Fastify", "MCP Server SDK", "Drizzle ORM", "SQLite", "Tailwind CSS v4", "Turborepo", "Vitest", "Playwright"],
+    challenge: "Traditional finance apps lack interoperability with modern AI workflows and are often cluttered with complex ledgers. Personal money management needs immediate disposable income visibility plus seamless integration with AI coding and assistant agents.",
+    approach: "Built as a clean Turborepo monorepo pairing SvelteKit 5 and Fastify with Drizzle ORM and SQLite. Alongside single-owner auth, bilingual support (ID/EN), Hallmark OKLCH dual theme system, and payday allocation, it includes an MCP server exposing finance tools (dashboard, incomes, expenses, bills, debts, backups) so any MCP-compliant agent can query and record transactions directly.",
+    outcome: "A self-hosted financial companion and agentic hub that makes everyday cash flow tracking and automated AI finance management fast, private, and effortless.",
+    images: [],
+    showcases: [
+      {
+        title: "Free-to-Spend Dashboard",
+        description: "Instant visibility into net disposable income, monthly cash flow stats, and live financial timeline.",
+        images: [
+          { src: "/pockt/dashboard-dark.webp", alt: "Pockt dashboard dark theme" },
+          { src: "/pockt/dashboard-light.webp", alt: "Pockt dashboard light theme" },
+        ],
+        featured: true,
+      },
+      {
+        title: "Authentication & Login",
+        description: "Secure single-owner access with session-based tokens, cookie protection, and rate limiting.",
+        images: [
+          { src: "/pockt/login-dark.webp", alt: "Pockt login dark theme" },
+          { src: "/pockt/login-light.webp", alt: "Pockt login light theme" },
+        ],
+      },
+      {
+        title: "Owner Registration Setup",
+        description: "Streamlined first-time initialization to configure the single owner credentials safely.",
+        images: [
+          { src: "/pockt/register-dark.webp", alt: "Pockt register dark theme" },
+          { src: "/pockt/register-light.webp", alt: "Pockt register light theme" },
+        ],
+      },
+      {
+        title: "Payday Allocation",
+        description: "Planning matrix balancing incoming salary against upcoming commitments, bills, and debt repayments.",
+        images: [
+          { src: "/pockt/payday-dark.webp", alt: "Pockt payday allocation dark theme" },
+          { src: "/pockt/payday-light.webp", alt: "Pockt payday allocation light theme" },
+        ],
+      },
+      {
+        title: "Income Tracking",
+        description: "Fast transaction recording for salaries, freelance projects, and secondary income sources.",
+        images: [
+          { src: "/pockt/incomes-dark.webp", alt: "Pockt incomes dark theme" },
+          { src: "/pockt/incomes-light.webp", alt: "Pockt incomes light theme" },
+        ],
+      },
+    ],
+    links: [
+      { label: "Visit website ↗", href: "https://pockt.caya.web.id" },
+      { label: "View source ↗", href: "https://github.com/caya8205-2/pockt" },
+    ],
+  },
+  "ferrum-scan": {
+    name: "ferrum-scan",
+    eyebrow: "High-performance CLI / 2026",
+    year: "2026",
+    summary: "An ultra-fast multithreaded repository scanner and health inspector CLI tool built in Rust to analyze codebases in milliseconds.",
+    role: "Creator and developer",
+    stack: ["Rust", "Rayon", "Clap", "ignore", "comfy-table", "Git"],
+    challenge: "Inspecting repository health, code metrics, storage breakdown, and duplicate files across large codebases often requires slow, fragmented tools. ferrum-scan delivers instant insights without external heavy dependencies.",
+    approach: "Built in Rust with rayon and ignore for parallel traversal that respects .gitignore. It computes lines of code (LOC), calculates storage breakdown, finds duplicate files via fast parallel content hashing, and inspects Git health metrics with formatted terminal tables or markdown/JSON exports.",
+    outcome: "A blazing fast binary capable of scanning tens of thousands of files and millions of lines of code in milliseconds with zero setup.",
+    images: [
+      {
+        src: "/ferrum-scan/ferrum-scan-demo.webp",
+        alt: "Ferrum-scan repository scan output and LOC metrics in terminal",
+        caption: "Parallel directory scan showcasing ultra-fast performance, total files scanned, and detailed Lines of Code (LOC) breakdown by language.",
+      },
+      {
+        src: "/ferrum-scan/ferrum-scan-health.webp",
+        alt: "Ferrum-scan duplicate files detector, storage breakdown, and repository health rating",
+        caption: "In-depth health inspector showing duplicate file detection with parallel content hashing, directory storage analysis, and Git health metrics.",
+      },
+      {
+        src: "/ferrum-scan/ferrum-scan-help.webp",
+        alt: "Ferrum-scan CLI help output with available options and flags",
+        caption: "Clean command-line interface with flags for storage breakdown (-s), duplicate detection (-d), full scans (--full), and markdown/JSON export.",
+      },
+    ],
+    links: [
+      { label: "View source ↗", href: "https://github.com/caya8205-2/ferrum-scan" },
     ],
   },
 };
