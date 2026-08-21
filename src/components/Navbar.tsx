@@ -47,7 +47,7 @@ export default function Navbar() {
           )}
         </button>
         <a href={sectionHref("contact")} className="nav-cta" data-cursor>
-          hire me
+          contact me
         </a>
       </div>
     </nav>
