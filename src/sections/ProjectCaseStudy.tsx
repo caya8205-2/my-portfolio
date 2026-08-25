@@ -27,6 +27,21 @@ type CaseStudy = {
 };
 
 export const caseStudies: Record<string, CaseStudy> = {
+  "innertube-rs": {
+    name: "innertube-rs",
+    eyebrow: "High-performance Rust InnerTube engine / 2026",
+    year: "2026",
+    summary: "A pure Rust asynchronous client and reverse-engineered engine for YouTube's internal InnerTube API, built to replace bloated Node.js sidecars and heavy subprocesses across native desktop and CLI media tooling.",
+    role: "Creator, architecture, and systems engineer",
+    stack: ["Rust", "Tokio", "Reqwest", "Serde", "Protobuf", "Crypto / Decipher", "YouTube InnerTube", "Open Source"],
+    challenge: "Existing media tools in the workspace like Noctune (desktop player) and AVPull (CLI downloader) previously relied on youtubei.js (Node.js runtime overhead) or yt-dlp subprocesses (3+ seconds latency and high memory footprint). Additionally, third-party Rust crates frequently break due to YouTube's constantly evolving obfuscation, n-token transforms, and signature cipher algorithms.",
+    approach: "Engineered a zero-bloat, asynchronous native Rust InnerTube client from scratch. Mapped all 574 legacy renderer classes into a strongly typed polymorphic AST parser, implemented full cryptographic decipher logic (signature deciphering, n-token transforms, visitor data, protobuf parameter encoding), built robust OAuth/cookie session management, and designed streaming primitives for format selection, segmented playback, and downloads.",
+    outcome: "A blazing fast native engine delivering sub-5ms scraping, zero Node.js runtime overhead, 85+ deterministic contract and fixture test suites, and 100% typed parity with YouTube.js — serving as the high-performance media backbone for Noctune and AVPull.",
+    images: [],
+    links: [
+      { label: "View source ↗", href: "https://github.com/caya8205-2/innertube-rs" },
+    ],
+  },
   noctune: {
     name: "Noctune",
     eyebrow: "Desktop music system / 2026",
@@ -303,7 +318,7 @@ export default function ProjectCaseStudy({ slug, onBack }: { slug: string; onBac
 
         {project.showcases ? (
           <ShowcaseGallery showcases={project.showcases} onPreview={openPreview} />
-        ) : (
+        ) : project.images && project.images.length > 0 ? (
           <section className="case-images" aria-label={`${project.name} screenshots`}>
             {project.images.map((image, index) => (
               <figure key={image.src} className={index === 0 ? "case-image case-image-featured" : "case-image"}>
@@ -315,7 +330,7 @@ export default function ProjectCaseStudy({ slug, onBack }: { slug: string; onBac
               </figure>
             ))}
           </section>
-        )}
+        ) : null}
 
         <section className="case-notes">
           <article><span>01 / The problem</span><p>{project.challenge}</p></article>

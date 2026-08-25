@@ -4,6 +4,21 @@ import "./Projects.css";
 const projects = [
   {
     num: "01",
+    name: "innertube-rs",
+    desc: "High-performance, asynchronous, pure Rust client and reverse-engineered engine for YouTube's internal InnerTube API. Full native port of YouTube.js with 100% strongly typed AST parser (574 legacy classes), cryptographic decipher & n-token solver, OAuth session manager, format selection, and rich mixins powering Noctune and AVPull with zero runtime overhead.",
+    tags: ["Rust", "InnerTube", "YouTube API", "Reverse Engineering", "Tokio", "Reqwest", "AST Parser", "Cryptographic Decipher", "Protobuf", "Open Source", "Crate", "Performance"],
+    status: "Personal / Open Source",
+    year: "2026",
+    links: {
+      website: "",
+      github: "https://github.com/caya8205-2/innertube-rs",
+      playstore: "",
+      appstore: "",
+    },
+    caseStudy: "/projects/innertube-rs",
+  },
+  {
+    num: "02",
     name: "Noctune",
     desc: "Local-first desktop music player that combines Spotify discovery, YouTube stream playback, synced lyrics, personalized Nightly Mix recommendations, smart autoqueue, cache learning, and background prefetch in a polished Tauri app.",
     tags: ["Typescript", "React", "Vite", "Tailwind", "Node.js", "Fastify", "Rust", "Tauri", "SQLite", "youtubei.js", "yt-dlp", "Spotify Web API", "LRClib", "Music Player", "Prefetch", "Smart Autoqueue", "Cache Learning", "Software Engineering"],
@@ -18,7 +33,7 @@ const projects = [
     caseStudy: "/projects/noctune",
   },
   {
-    num: "02",
+    num: "03",
     name: "ERP Tumbuh",
     desc: "Internal multi-company ERP platform for managing companies, branches, users, permissions, inventory, purchasing, accounts payable, payment flows, and accounting foundations. Built with financial-book isolation, audit trails, security hardening, and a modular architecture ready for operational business modules.",
     tags: ["Laravel", "PHP", "MySQL", "Blade", "Tailwind CSS", "Alpine.js", "Vite", "Multi-company", "Inventory", "Purchasing", "Accounting", "Role-based Access"],
@@ -27,7 +42,7 @@ const projects = [
     caseStudy: "/projects/erp-tumbuh",
   },
   {
-    num: "03",
+    num: "04",
     name: "Pockt",
     desc: "High-performance, self-hosted personal finance companion and disposable income engine. Calculates real-time spendable cash with single-owner auth, bilingual ID/EN interface, Hallmark OKLCH dual theme system, payday allocation, automated test suites, and a dedicated MCP server adapter allowing AI agents (Hermes, Claude Code, Antigravity, Codex) to manage and track finances autonomously.",
     tags: ["SvelteKit", "TypeScript", "Fastify", "MCP Server", "Agentic Finance", "Drizzle ORM", "SQLite", "Tailwind CSS", "Turborepo", "Vitest", "Playwright"],
@@ -42,7 +57,7 @@ const projects = [
     caseStudy: "/projects/pockt",
   },
   {
-    num: "04",
+    num: "05",
     name: "AVPull",
     desc: "Open-source Node.js and Bun CLI for downloading YouTube audio or video and converting it to formats such as MP3, WAV, MP4, and WebM. Bundles FFmpeg, supports batch downloads and interactive prompts, and is published as an npm package.",
     tags: ["Node.js", "Bun", "CLI", "npm Package", "youtubei.js", "FFmpeg", "Media Processing", "Open Source"],
@@ -57,7 +72,7 @@ const projects = [
     caseStudy: "/projects/avpull",
   },
   {
-    num: "05",
+    num: "06",
     name: "ferrum-scan",
     desc: "Ultra-fast multithreaded repository scanner and health inspector CLI tool built in Rust. Scans directories in parallel within milliseconds, provides LOC breakdown, duplicate file detection with content hashing, storage breakdown, and Git health analysis with markdown/JSON exports.",
     tags: ["Rust", "CLI", "Rayon", "Clap", "Code Metrics", "Multi-threading", "Git Analytics", "Open Source"],
@@ -72,7 +87,7 @@ const projects = [
     caseStudy: "/projects/ferrum-scan",
   },
   {
-    num: "06",
+    num: "07",
     name: "nara",
     desc: "Local-first operational assistant for task management, scheduling, reporting, and business workflow automation. It pairs a self-hosted TypeScript backend with mobile and desktop clients, plus an OpenClaw-powered agent layer and a simulation harness for safely testing natural-language task flows.",
     tags: ["Agent", "Personal Assistant", "OpenClaw", "Whatsapp / Baileys", "TypeScript", "shadcn", "Tailwind", "PostgreSQL", "Redis", "Fastify", "BullMQ", "pgvector"],
@@ -86,7 +101,7 @@ const projects = [
     }
   },
   {
-    num: "07",
+    num: "08",
     name: "Planify",
     desc: "AI-powered project documentation system — a full-stack web app that generates structured software docs (PRD, SRS, user flow, architecture diagrams) using LLMs. Features a modular AI prompt system supporting multiple domains, coin-based usage system, PDF export, and scalable backend architecture.",
     tags: ["Node.js", "PNPM", "TypeScript", "Supabase", "LLM APIs", "REST API", "PDF Generation", "Markdown Generation"],
@@ -100,7 +115,7 @@ const projects = [
     }
   },
   {
-    num: "08",
+    num: "09",
     name: "crewctl",
     desc: "State-driven orchestration engine for software engineering agents. Coordinates planner, implementer, auditor, and QC workflows through deterministic state transitions, structured artifacts, quality gates, OpenClaw-compatible runtime adapters, and an MCP server for agent-tool integration.",
     tags: ["Agentic Automation", "AI Orchestration", "OpenClaw", "Coding Agent", "Skills", "Prompt Engineering", "Javascript", "Markdown", "CLI"],
@@ -114,7 +129,7 @@ const projects = [
     }
   },
   {
-    num: "09",
+    num: "10",
     name: "ai-platform",
     desc: "Unified LLM gateway and developer platform — a monorepo providing a standardized interface for Groq, Anthropic, and OpenAI. Features a persistent chat playground with session management, BullMQ-based async automation, and a real-time analytics dashboard for monitoring token usage and latency.",
     tags: ["Node.js", "TypeScript", "Express", "BullMQ", "Redis", "React", "Vite", "Recharts"],
@@ -128,7 +143,7 @@ const projects = [
     }
   },
   {
-    num: "10",
+    num: "11",
     name: "capcay-llm",
     desc: "Lightweight LLM client package extracted from the ai-platform monorepo, specifically the @ai-platform/core layer. Provides one TypeScript interface for Groq, Anthropic, and OpenAI, with chat, streaming responses, environment-based defaults, configurable generation options, and provider-aware error handling.",
     tags: ["TypeScript", "Node.js", "npm Package", "Groq", "Anthropic", "OpenAI", "Streaming", "LLM SDK"],
@@ -142,7 +157,7 @@ const projects = [
     }
   },
   {
-    num: "11",
+    num: "12",
     name: "Discord Bot",
     desc: "Modular multi-purpose Discord bot refactored from a 5.4k-line monolith. Features an AI persona with persistent memory, a conversation-data pipeline for LoRA/Unsloth fine-tuning, and a resilient Spotify-enabled music player with cache safeguards for reliable YouTube playback.",
     tags: ["Node.js", "Discord.js", "Fine-tuning", "Unsloth", "LoRA", "Groq API", "Gemini Vision", "Spotify API", "yt-dlp"],
