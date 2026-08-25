@@ -5,8 +5,8 @@ const projects = [
   {
     num: "01",
     name: "innertube-rs",
-    desc: "High-performance, asynchronous, pure Rust client and reverse-engineered engine for YouTube's internal InnerTube API. Full native port of YouTube.js with 100% strongly typed AST parser (574 legacy classes), cryptographic decipher & n-token solver, OAuth session manager, format selection, and rich mixins powering Noctune and AVPull with zero runtime overhead.",
-    tags: ["Rust", "InnerTube", "YouTube API", "Reverse Engineering", "Tokio", "Reqwest", "AST Parser", "Cryptographic Decipher", "Protobuf", "Open Source", "Crate", "Performance"],
+    desc: "Asynchronous, pure Rust port of YouTube.js (InnerTube internal API client). Built to eliminate Node.js runtime overhead and heavy CLI subprocesses across local media tools like Noctune and AVPull, providing native format resolution, decipher algorithms, feed parsing, and stream handling.",
+    tags: ["Rust", "YouTube InnerTube", "YouTube.js Port", "Async Tokio", "Reqwest", "Cipher Decipher", "Streaming", "Open Source", "Crate"],
     status: "Personal / Open Source",
     year: "2026",
     links: {

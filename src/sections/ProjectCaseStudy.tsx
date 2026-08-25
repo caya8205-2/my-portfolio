@@ -29,14 +29,14 @@ type CaseStudy = {
 export const caseStudies: Record<string, CaseStudy> = {
   "innertube-rs": {
     name: "innertube-rs",
-    eyebrow: "High-performance Rust InnerTube engine / 2026",
+    eyebrow: "Rust InnerTube client library / 2026",
     year: "2026",
-    summary: "A pure Rust asynchronous client and reverse-engineered engine for YouTube's internal InnerTube API, built to replace bloated Node.js sidecars and heavy subprocesses across native desktop and CLI media tooling.",
-    role: "Creator, architecture, and systems engineer",
-    stack: ["Rust", "Tokio", "Reqwest", "Serde", "Protobuf", "Crypto / Decipher", "YouTube InnerTube", "Open Source"],
-    challenge: "Existing media tools in the workspace like Noctune (desktop player) and AVPull (CLI downloader) previously relied on youtubei.js (Node.js runtime overhead) or yt-dlp subprocesses (3+ seconds latency and high memory footprint). Additionally, third-party Rust crates frequently break due to YouTube's constantly evolving obfuscation, n-token transforms, and signature cipher algorithms.",
-    approach: "Engineered a zero-bloat, asynchronous native Rust InnerTube client from scratch. Mapped all 574 legacy renderer classes into a strongly typed polymorphic AST parser, implemented full cryptographic decipher logic (signature deciphering, n-token transforms, visitor data, protobuf parameter encoding), built robust OAuth/cookie session management, and designed streaming primitives for format selection, segmented playback, and downloads.",
-    outcome: "A blazing fast native engine delivering sub-5ms scraping, zero Node.js runtime overhead, 85+ deterministic contract and fixture test suites, and 100% typed parity with YouTube.js — serving as the high-performance media backbone for Noctune and AVPull.",
+    summary: "A pure Rust asynchronous port of YouTube.js (InnerTube internal API client), built to replace Node.js sidecars and heavy subprocesses across personal media tools with a fast, embeddable native library.",
+    role: "Port author and maintainer",
+    stack: ["Rust", "Tokio", "Reqwest", "Serde", "Protobuf", "YouTube.js", "InnerTube API"],
+    challenge: "Media tools in the workspace like Noctune (desktop player) and AVPull (CLI downloader) previously relied on YouTube.js running inside Node.js/Bun sidecars or heavy yt-dlp subprocesses. This introduced cold-start delays, extra memory overhead, and packaging complexity for desktop distribution.",
+    approach: "Ported YouTube.js architecture into idiomatic, asynchronous Rust using Tokio and Reqwest. Implemented core InnerTube endpoints (Player, Browse, Search, Next, Account), strongly typed response parsers, signature and n-token deciphering algorithms, and streaming data helpers for format selection and segmented downloads.",
+    outcome: "A lightweight, embeddable native Rust crate that directly powers Noctune and AVPull with fast responses, minimal memory footprint, and zero external runtime dependencies.",
     images: [],
     links: [
       { label: "View source ↗", href: "https://github.com/caya8205-2/innertube-rs" },
