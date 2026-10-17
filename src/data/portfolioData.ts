@@ -23,6 +23,7 @@ export interface Project {
   bentoSpan?: 'hero' | 'wide' | 'tall' | 'standard';
   metrics?: { label: string; value: string };
   isFeatured?: boolean;
+  featuredLabel?: string;
 }
 
 export interface Screenshot {
@@ -45,6 +46,7 @@ export interface CaseStudy {
   year: string;
   summary: string;
   role: string;
+  status?: string;
   stack: string[];
   challenge: string;
   approach: string;
@@ -80,7 +82,7 @@ export const PROFILE_DATA = {
     { value: "3+", label: "Years Engineering", detail: "R&D and production systems" },
     { value: "12+", label: "Shipped Projects", detail: "Apps, CLI tools & crates" },
     { value: "100%", label: "Strictly Typed", detail: "TypeScript & Rust type-safety" },
-    { value: "4", label: "Flagship Systems", detail: "Noctune, innertube-rs, ERP & AVPull" }
+    { value: "5", label: "Flagship Systems", detail: "Noctune, innertube-rs, Agentic BOS, ERP & AVPull" }
   ],
   principles: [
     {
@@ -114,18 +116,18 @@ export const TECH_STACK: TechItem[] = [
   // Languages
   { name: "TypeScript", category: "languages", role: "Primary language for full-stack apps, MCP servers, and strict SDKs", highlight: true, logoUrl: "https://cdn.simpleicons.org/typescript/3178C6" },
   { name: "Rust", category: "languages", role: "CLI tools, native crates, and low-latency Tauri backend", highlight: true, logoUrl: "https://cdn.simpleicons.org/rust/DEA584" },
-  { name: "Python 3", category: "languages", role: "Generative AI pipelines, ComfyUI custom nodes, PyTorch & LoRA training", highlight: true, logoUrl: "https://cdn.simpleicons.org/python/3776AB" },
-  { name: "JavaScript", category: "languages", role: "Web standards, DOM APIs, and Node/Bun runtime scripting", logoUrl: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "Python 3", category: "languages", role: "Generative AI pipelines, ComfyUI custom nodes, PyTorch & LoRA training", logoUrl: "https://cdn.simpleicons.org/python/3776AB" },
+  { name: "JavaScript", category: "languages", role: "Web standards, DOM APIs, and Node/Bun runtime scripting", highlight: true, logoUrl: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "PHP", category: "languages", role: "Enterprise backend services and multi-company Laravel platform", logoUrl: "https://cdn.simpleicons.org/php/777BB4" },
   { name: "SQL", category: "languages", role: "Relational modeling, complex queries, and ACID migrations", logoUrl: "https://cdn.simpleicons.org/mysql/4479A1" },
   { name: "Bash", category: "languages", role: "System automation scripts, CLI pipes, and deployment routines", logoUrl: "https://cdn.simpleicons.org/gnubash/white" },
   
   // Frameworks & Runtimes
   { name: "React", category: "frameworks", role: "Interactive component architecture and reactive web views", highlight: true, logoUrl: "https://cdn.simpleicons.org/react/61DAFB" },
-  { name: "Fastify", category: "frameworks", role: "Low-overhead, high-throughput asynchronous REST microservices", highlight: true, logoUrl: "https://cdn.simpleicons.org/fastify/white" },
+  { name: "Fastify", category: "frameworks", role: "Low-overhead, high-throughput asynchronous REST microservices", logoUrl: "https://cdn.simpleicons.org/fastify/white" },
   { name: "Tauri", category: "frameworks", role: "Lightweight native desktop runtime powered by Rust and web UI", highlight: true, logoUrl: "https://cdn.simpleicons.org/tauri/24C8D8" },
   { name: "Node.js", category: "frameworks", role: "Full-stack server runtimes, build scripts, and CLI utilities", logoUrl: "https://cdn.simpleicons.org/nodedotjs/5FA04E" },
-  { name: "Bun", category: "frameworks", role: "Ultra-fast JavaScript/TypeScript runtime, bundler, and package execution", logoUrl: "https://cdn.simpleicons.org/bun/FBF0DF" },
+  { name: "Bun", category: "frameworks", role: "Ultra-fast JavaScript/TypeScript runtime, bundler, and package execution", highlight: true, logoUrl: "https://cdn.simpleicons.org/bun/FBF0DF" },
   { name: "Tailwind CSS", category: "frameworks", role: "Utility-first design systems and OKLCH color palettes", logoUrl: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
   { name: "Laravel", category: "frameworks", role: "Multi-tenant enterprise ERP framework with strict permissions", logoUrl: "https://cdn.simpleicons.org/laravel/FF2D20" },
   
@@ -135,19 +137,16 @@ export const TECH_STACK: TechItem[] = [
   { name: "LoRA Training", category: "ai-agents", role: "Dataset curation, caption tagging, and LoRA weight training on Google Colab", highlight: true, logoUrl: "https://cdn.simpleicons.org/pytorch/EE4C2C" },
   { name: "MCP Protocol", category: "ai-agents", role: "Model Context Protocol servers exposing structured tool APIs to agents", highlight: true, logoUrl: "https://cdn.simpleicons.org/anthropic/white" },
   { name: "Hermes Agent", category: "ai-agents", role: "Autonomous execution layer & Hermes agent harness by Nous Research", highlight: true, logoUrl: "/hermes-logo.svg" },
-  { name: "LLM Gateways", category: "ai-agents", role: "Multi-provider streaming for Groq, Anthropic, Gemini, and OpenAI", logoUrl: "https://cdn.simpleicons.org/groq/F55036" },
-  { name: "Prompt Engineering", category: "ai-agents", role: "Structured JSON schema enforcement and system prompt architecture", logoUrl: "https://cdn.simpleicons.org/json/white" },
 
   // Data & ORM
   { name: "PostgreSQL", category: "databases", role: "Relational persistence, multi-tenant isolation, and integrity", logoUrl: "https://cdn.simpleicons.org/postgresql/4169E1" },
   { name: "SQLite", category: "databases", role: "Embedded local-first storage with zero latency and instant start", highlight: true, logoUrl: "https://cdn.simpleicons.org/sqlite/003B57" },
-  { name: "Prisma", category: "databases", role: "Type-safe database ORM, schema modeling, and migrations", highlight: true, logoUrl: "https://cdn.simpleicons.org/prisma/white" },
+  { name: "Prisma", category: "databases", role: "Type-safe database ORM, schema modeling, and migrations", logoUrl: "https://cdn.simpleicons.org/prisma/white" },
   { name: "pgvector", category: "databases", role: "Vector embeddings and semantic retrieval for agent memory", logoUrl: "https://cdn.simpleicons.org/postgresql/4169E1" },
 
   // DevOps & Tooling
   { name: "Google Colab", category: "devops", role: "Cloud GPU environment for PyTorch, Kohya, and LoRA model fine-tuning", highlight: true, logoUrl: "https://cdn.simpleicons.org/googlecolab/F9AB00" },
-  { name: "Git", category: "devops", role: "Distributed version control, branching strategies, and CI workflows", logoUrl: "https://cdn.simpleicons.org/git/F05032" },
-  { name: "FFmpeg", category: "devops", role: "Audio/video stream extraction, format transcoding, and batch remuxing", highlight: true, logoUrl: "https://cdn.simpleicons.org/ffmpeg/007808" },
+  { name: "Git", category: "devops", role: "Distributed version control, branching strategies, and CI workflows", highlight: true, logoUrl: "https://cdn.simpleicons.org/git/F05032" },
   { name: "Docker", category: "devops", role: "Containerized reproducible development and testing environments", logoUrl: "https://cdn.simpleicons.org/docker/2496ED" },
   { name: "Turborepo", category: "devops", role: "High-performance monorepo build caching and task pipelines", logoUrl: "https://cdn.simpleicons.org/turborepo/EF4444" },
   { name: "Vitest", category: "devops", role: "Fast unit and integration test runner for TypeScript codebases", logoUrl: "https://cdn.simpleicons.org/vitest/6E9F18" }
@@ -161,7 +160,7 @@ export const PROJECTS: Project[] = [
     name: "Noctune",
     category: "systems-rust",
     categoryLabel: "Desktop System & Music",
-    desc: "Local-first desktop music player combining Spotify metadata discovery, YouTube stream resolution, synced lyrics, autoqueue intelligence, and background audio prefetching in a native Tauri + Rust app.",
+    desc: "A local-first desktop player born from a simple goal: game on a RAM-limited PC while listening to Neuro-sama karaoke clips without adding another browser window. Noctune pairs Spotify metadata with YouTube playback in a native Tauri app.",
     tags: ["Tauri", "Rust", "TypeScript", "React", "Fastify", "SQLite", "Spotify API"],
     status: "Featured Production System",
     year: "2026",
@@ -182,7 +181,7 @@ export const PROJECTS: Project[] = [
     name: "innertube-rs",
     category: "systems-rust",
     categoryLabel: "Rust Core Crate",
-    desc: "Asynchronous pure Rust port of YouTube.js (InnerTube client). Eliminates heavy Node.js sidecars and yt-dlp subprocesses, providing native format resolution, signature deciphering, and async Tokio streams.",
+    desc: "A strict 1:1 Rust port of YouTube.js' InnerTube client, built for Noctune's roadmap to move its primary playback backend into Rust, with performance as a goal. It preserves the source library's behavior.",
     tags: ["Rust", "Tokio", "Reqwest", "Cipher Decipher", "Async Streams", "Open Source"],
     status: "Featured Production System",
     year: "2026",
@@ -190,15 +189,32 @@ export const PROJECTS: Project[] = [
       github: "https://github.com/caya8205-2/innertube-rs"
     },
     caseStudy: "innertube-rs",
-    bentoSpan: "wide",
-    metrics: { label: "Flagship", value: "Zero Subprocess Overhead" },
+    bentoSpan: "standard",
+    metrics: { label: "Porting Goal", value: "1:1 YouTube.js Parity" },
     isFeatured: true
   },
-  // 3. Featured Flagship: ERP Tumbuh
+  // 3. Featured Project: Agentic BOS
+  {
+    id: "agentic-bos",
+    num: "03",
+    name: "Agentic BOS",
+    category: "web-apps",
+    categoryLabel: "Business Platform",
+    desc: "An in-development business platform that adapts workflows to different companies while keeping their data and access separate. It is also being built to connect Hermes agents to business tools each company has approved.",
+    tags: ["Node.js", "Express 5", "React", "TypeScript", "Multi-company", "Hermes"],
+    status: "In Development",
+    featuredLabel: "Featured Project · In Development",
+    year: "2026",
+    links: {},
+    caseStudy: "agentic-bos",
+    bentoSpan: "wide",
+    isFeatured: true
+  },
+  // 4. Featured Flagship: ERP Prime
   {
     id: "erp-tumbuh",
-    num: "03",
-    name: "ERP Tumbuh",
+    num: "04",
+    name: "ERP Prime",
     category: "web-apps",
     categoryLabel: "Enterprise Platform",
     desc: "Internal multi-company ERP foundation with strict financial-book isolation, role-based access control, purchasing cycles, inventory movement tracking, accounts payable, and auditing.",
@@ -212,10 +228,10 @@ export const PROJECTS: Project[] = [
     metrics: { label: "Flagship", value: "Multi-Company & Books" },
     isFeatured: true
   },
-  // 4. Featured Flagship: AVPull
+  // 5. Featured Flagship: AVPull
   {
     id: "avpull",
-    num: "04",
+    num: "05",
     name: "AVPull",
     category: "cli-tools",
     categoryLabel: "CLI Media Transcoder",
@@ -233,10 +249,10 @@ export const PROJECTS: Project[] = [
     metrics: { label: "Flagship", value: "CLI & Bundled FFmpeg" },
     isFeatured: true
   },
-  // 5. ferrum-scan
+  // 6. ferrum-scan
   {
     id: "ferrum-scan",
-    num: "05",
+    num: "06",
     name: "ferrum-scan",
     category: "cli-tools",
     categoryLabel: "Rust Inspector CLI",
@@ -249,13 +265,13 @@ export const PROJECTS: Project[] = [
     },
     caseStudy: "ferrum-scan",
     previewImage: "/ferrum-scan/ferrum-scan-demo.webp",
-    bentoSpan: "standard",
+    bentoSpan: "wide",
     metrics: { label: "Performance", value: "Parallel Rayon Scan" }
   },
-  // 6. Pockt
+  // 7. Pockt
   {
     id: "pockt",
-    num: "06",
+    num: "07",
     name: "Pockt",
     category: "ai-agents",
     categoryLabel: "Agentic Finance",
@@ -268,13 +284,13 @@ export const PROJECTS: Project[] = [
     },
     caseStudy: "pockt",
     previewImage: "/pockt/dashboard-dark.webp",
-    bentoSpan: "standard",
+    bentoSpan: "hero",
     metrics: { label: "Protocol", value: "MCP Agent Adapter" }
   },
-  // 7. nara
+  // 8. nara
   {
     id: "nara",
-    num: "07",
+    num: "08",
     name: "nara",
     category: "ai-agents",
     categoryLabel: "Local-First Agent",
@@ -288,10 +304,10 @@ export const PROJECTS: Project[] = [
     bentoSpan: "standard",
     metrics: { label: "Architecture", value: "Hermes + pgvector" }
   },
-  // 8. crewctl
+  // 9. crewctl
   {
     id: "crewctl",
-    num: "08",
+    num: "09",
     name: "crewctl",
     category: "ai-agents",
     categoryLabel: "Agent Orchestration",
@@ -305,10 +321,10 @@ export const PROJECTS: Project[] = [
     bentoSpan: "standard",
     metrics: { label: "Coordination", value: "State-Driven Engine" }
   },
-  // 9. Planify
+  // 10. Planify
   {
     id: "planify",
-    num: "09",
+    num: "10",
     name: "Planify",
     category: "ai-agents",
     categoryLabel: "Software Spec AI",
@@ -319,13 +335,13 @@ export const PROJECTS: Project[] = [
     links: {
       github: "https://github.com/yudha556/planify"
     },
-    bentoSpan: "standard",
+    bentoSpan: "hero",
     metrics: { label: "Output", value: "PRD & Architecture Specs" }
   },
-  // 10. ai-platform
+  // 11. ai-platform
   {
     id: "ai-platform",
-    num: "10",
+    num: "11",
     name: "ai-platform",
     category: "ai-agents",
     categoryLabel: "LLM Gateway",
@@ -339,10 +355,10 @@ export const PROJECTS: Project[] = [
     bentoSpan: "standard",
     metrics: { label: "Telemetry", value: "Unified LLM Gateway" }
   },
-  // 11. capcay-llm
+  // 12. capcay-llm
   {
     id: "capcay-llm",
-    num: "11",
+    num: "12",
     name: "capcay-llm",
     category: "ai-agents",
     categoryLabel: "NPM Package",
@@ -356,10 +372,10 @@ export const PROJECTS: Project[] = [
     bentoSpan: "standard",
     metrics: { label: "Distribution", value: "Published TypeScript SDK" }
   },
-  // 12. Discord Bot (Ditos)
+  // 13. Discord Bot (Ditos)
   {
     id: "discord-bot",
-    num: "12",
+    num: "13",
     name: "Discord Bot (Ditos)",
     category: "ai-agents",
     categoryLabel: "AI Persona & LoRA",
@@ -376,21 +392,41 @@ export const PROJECTS: Project[] = [
 ];
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  "agentic-bos": {
+    slug: "agentic-bos",
+    name: "Agentic BOS",
+    eyebrow: "Featured Business Platform / In Development / 2026",
+    year: "2026",
+    status: "In Development",
+    summary: "A business operations platform in development. Each company can enable the workflows it needs while company-specific access rules keep its data separate. The platform is also being built to let Hermes agents use only the business tools each company has approved.",
+    role: "Full-stack Engineer → Lead Developer",
+    stack: ["Node.js", "Express 5", "React", "TypeScript", "Tailwind CSS v4", "Prisma", "Hermes"],
+    challenge: "Different businesses need different workflows, but separate software for every industry is costly to maintain. The platform also needs to keep each company's records and permissions within its own boundaries.",
+    approach: "Built the platform around business presets that enable capabilities as data, with company-scoped records and role-based access. The Hermes integration exposes approved business tools through authenticated, company-scoped routes.",
+    outcome: "A shared foundation for configurable business workflows, with company boundaries carried through both the application and its agent integration. The project is still in development.",
+    architectureHighlights: [
+      { title: "Workflows that adapt", detail: "Business presets configure available capabilities without creating a separate application for each industry." },
+      { title: "Separate company data", detail: "Business records and permissions stay scoped to the company that owns them." },
+      { title: "Controlled agent access", detail: "Hermes agents reach business tools through authenticated routes scoped to each company." }
+    ],
+    images: [],
+    links: []
+  },
   "noctune": {
     slug: "noctune",
     name: "Noctune",
     eyebrow: "Featured Production System / Desktop Audio / 2026",
     year: "2026",
-    summary: "A local-first desktop music player crafted for uninterrupted listening: discover with Spotify, stream through YouTube, and keep the upcoming audio buffer ready before the current track finishes.",
+    summary: "Noctune began with a personal constraint: I wanted to game on a RAM-limited PC while listening to Neuro-sama karaoke clips—mostly found on YouTube—without adding another browser window to my always-open tabs. It grew into a local-first desktop player that pairs Spotify metadata with YouTube playback.",
     role: "Product architect, systems engineering, and UI design",
     stack: ["TypeScript", "Tauri", "Rust", "React", "Fastify", "SQLite", "Spotify Web API", "youtubei.js"],
-    challenge: "Streaming playback frequently stumbles across fragmented boundaries: audio discovery, resolving streaming source URLs, queue logic, and local caching are treated as disjointed problems. Users encounter micro-buffering, cold audio playback starts, and high memory footprints in traditional Electron-based audio apps.",
-    approach: "Designed Noctune with a hybrid Tauri + Rust architecture. The desktop shell remains lightweight and responsive, while an internal Fastify service handles streaming resolution, automated background prefetch, cache learning, and synced LRC lyrics. Spotify provides structured metadata while YouTube serves as the delivery pipeline, eliminating subscription walled-gardens.",
-    outcome: "A native, highly responsive desktop workspace with near-instant track switching, offline-cached favorite tracks, and an intuitive listening interface that hides underlying playback complexities.",
+    challenge: "My browser already had many tabs kept open, leaving less memory for games; adding browser-based music playback made that worse. Ads on Spotify and YouTube interrupted listening, while the Neuro-sama karaoke clips I wanted were on YouTube rather than Spotify. Spotify's Playback SDK also required Premium and limited free playback to 30-second previews, which did not fit the experience I wanted to build.",
+    approach: "Noctune uses Spotify Web API for rich track metadata and discovery, then matches tracks to YouTube search results and resolves playback there. This brings official songs and YouTube-only karaoke clips into one queue without relying on Spotify playback. A Tauri desktop shell, local caching, background prefetch, synced lyrics, and smart autoqueue keep the experience out of a tab-heavy browser. Spotify API access began tightening in February 2026 and reached my long-standing app registration in March; I maintained Premium and the app's configured API access so listeners could use the metadata features without each needing their own Premium plan.",
+    outcome: "A desktop player shaped around the original need: keep the browser closed, leave more memory for gaming, and listen to both Spotify-discovered tracks and YouTube-only karaoke clips from one place.",
     architectureHighlights: [
-      { title: "Predictive Prefetch", detail: "Background worker downloads and decodes next 2 tracks into an encrypted temp buffer before previous finishes." },
-      { title: "Local-First Cache Learning", detail: "Tracks frequently played are retained in SQLite cache with heuristic eviction algorithms." },
-      { title: "Tauri Native Shell", detail: "Zero-bloat memory footprint (<85MB RAM vs 600MB+ in Electron competitors)." }
+      { title: "Spotify Discovery, YouTube Playback", detail: "Spotify metadata helps identify tracks; YouTube provides the playable stream, including karaoke clips absent from Spotify." },
+      { title: "Desktop Listening", detail: "A dedicated Tauri app keeps music playback separate from the user's tab-heavy browser session." },
+      { title: "Keep the Queue Moving", detail: "Local caching and background prefetch help prepare upcoming tracks while the current one plays." }
     ],
     images: [
       { src: "/noctune/noctune-full-player.webp", alt: "Noctune full player view", caption: "The primary listening surface: seamless player controls, active queue, and album art." },
@@ -409,16 +445,16 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     name: "innertube-rs",
     eyebrow: "Featured Production System / Rust Crate / 2026",
     year: "2026",
-    summary: "An asynchronous, pure Rust port of YouTube.js (InnerTube internal API client), built to eliminate heavy Node.js runtimes and CLI subprocesses across desktop media tools.",
+    summary: "A strict, full 1:1 Rust port of YouTube.js' InnerTube client. It was started to continue Noctune's roadmap toward a fully Rust app by moving its primary playback backend from YouTube.js into Rust, with performance as a goal.",
     role: "Port author and maintainer",
     stack: ["Rust", "Tokio", "Reqwest", "Serde", "Cipher Decipher", "Async Streaming"],
-    challenge: "Personal media software like Noctune and AVPull previously relied on heavy external yt-dlp binaries or Node.js sidecars, causing cold start delays and multi-hundred-megabyte bundle sizes.",
-    approach: "Reverse-engineered and ported the core InnerTube request pipeline into idiomatic async Rust using Tokio and Reqwest. Built strongly typed response parsers, signature deciphering logic, and stream multiplexers directly into an embeddable crate.",
-    outcome: "A standalone, blazingly fast Rust library powering internal media tools with sub-second stream resolution and zero external runtime dependencies.",
+    challenge: "At the time, most Rust YouTube client libraries I found were outdated and could not serve as a dependable base for Noctune's planned Rust backend. Since YouTube.js already powered Noctune's primary playback path, I chose to port that client directly, preserving its behavior and API coverage one to one.",
+    approach: "Ported YouTube.js directly to Rust with strict 1:1 parity: each supported behavior is carried across one to one, with no symlink shortcuts and no tolerated differences from the reference. Tokio and Reqwest provide asynchronous execution.",
+    outcome: "A Rust InnerTube client forming the basis of Noctune's backend migration plan: preserve YouTube.js behavior while moving execution toward Rust and pursuing better performance.",
     architectureHighlights: [
-      { title: "Pure Native Rust", detail: "Zero reliance on external Python, Node.js or yt-dlp binaries." },
-      { title: "Async Tokio Architecture", detail: "Non-blocking format resolution and segmented chunk streaming." },
-      { title: "Embedded in Noctune", detail: "Powers local desktop playback engine seamlessly." }
+      { title: "Strict 1:1 Parity", detail: "Carries YouTube.js behavior across one to one, with no tolerated differences from the reference." },
+      { title: "Noctune Rust Roadmap", detail: "Moves the primary playback backend toward Rust as part of the plan for a fully Rust app." },
+      { title: "Asynchronous Rust", detail: "Tokio and Reqwest provide asynchronous execution for the native client." }
     ],
     images: [],
     links: [
@@ -427,7 +463,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
   },
   "erp-tumbuh": {
     slug: "erp-tumbuh",
-    name: "ERP Tumbuh",
+    name: "ERP Prime",
     eyebrow: "Featured Production System / Enterprise Platform / 2026",
     year: "2026",
     summary: "A robust multi-company Enterprise Resource Planning (ERP) platform built with financial-book isolation, audit trails, purchasing pipelines, inventory movements, and accounting foundations.",

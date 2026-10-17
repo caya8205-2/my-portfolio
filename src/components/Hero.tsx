@@ -164,7 +164,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
                         <span className="text-[10px] font-mono text-zinc-500">Audio &amp; Rust Crate</span>
                       </div>
                       <div className="flex items-center justify-between pt-1.5 border-t border-zinc-900">
-                        <span className="font-semibold text-zinc-100">ERP Tumbuh &amp; AVPull</span>
+                        <span className="font-semibold text-zinc-100">ERP Prime &amp; AVPull</span>
                         <span className="text-[10px] font-mono text-zinc-500">Enterprise &amp; CLI</span>
                       </div>
                     </div>

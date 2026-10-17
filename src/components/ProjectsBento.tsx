@@ -84,7 +84,11 @@ export const ProjectsBento: React.FC<ProjectsBentoProps> = ({ onOpenCaseStudy })
             return (
               <div
                 key={project.id}
-                className={`${colSpan} bg-zinc-900/30 border border-zinc-800/80 rounded-xl overflow-hidden hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between group`}
+                onClick={(event) => {
+                  if (!project.caseStudy || (event.target as HTMLElement).closest('a, button')) return;
+                  onOpenCaseStudy(project.caseStudy);
+                }}
+                className={`${colSpan} bg-zinc-900/30 border border-zinc-800/80 rounded-xl overflow-hidden hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between group ${project.caseStudy ? 'cursor-pointer' : ''}`}
               >
                 {/* Media Preview (if available) */}
                 {project.previewImage && (
@@ -129,7 +133,7 @@ export const ProjectsBento: React.FC<ProjectsBentoProps> = ({ onOpenCaseStudy })
                     <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-zinc-400 mb-4 font-mono">
                       {project.isFeatured ? (
                         <span className="text-zinc-200 font-semibold bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700/60">
-                          Featured Production System
+                          {project.featuredLabel ?? 'Featured Production System'}
                         </span>
                       ) : (
                         <span>{project.status}</span>

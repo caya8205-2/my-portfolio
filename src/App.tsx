@@ -11,7 +11,6 @@ import { Navbar } from "./components/Navbar";
 import { ProjectsBento } from "./components/ProjectsBento";
 import { TechStack } from "./components/TechStack";
 import BackToTop from "./components/BackToTop";
-import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
 import { CASE_STUDIES } from "./data/portfolioData";
 
@@ -68,7 +67,6 @@ export default function App() {
       {showPreloader && <Preloader />}
       <Analytics />
       <SpeedInsights />
-      <Cursor />
       <Navbar onNavigate={navigateToSection} />
       <main>
         <Hero />

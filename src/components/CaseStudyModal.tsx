@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CASE_STUDIES, Screenshot, Showcase } from '../data/portfolioData';
-import { Cancel01Icon, LinkSquare02Icon, Maximize01Icon } from 'hugeicons-react';
+import { Cancel01Icon, LinkSquare02Icon } from 'hugeicons-react';
 
 interface CaseStudyModalProps {
   slug: string | null;
@@ -9,9 +9,16 @@ interface CaseStudyModalProps {
 
 export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [lightboxImage, setLightboxImage] = useState<Screenshot | null>(null);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState<number | null>(null);
 
   const study = slug ? CASE_STUDIES[slug] : null;
+  const lightboxImages = study?.showcases?.flatMap((showcase) => showcase.images) ?? study?.images ?? [];
+  const lightboxImage = lightboxImageIndex === null ? null : lightboxImages[lightboxImageIndex] ?? null;
+
+  const openLightbox = (image: Screenshot) => {
+    const imageIndex = lightboxImages.findIndex((candidate) => candidate.src === image.src);
+    if (imageIndex >= 0) setLightboxImageIndex(imageIndex);
+  };
 
   // Handle escape key and body scroll lock
   useEffect(() => {
@@ -22,11 +29,15 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose })
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        if (lightboxImage) {
-          setLightboxImage(null);
+        if (lightboxImageIndex !== null) {
+          setLightboxImageIndex(null);
         } else {
           onClose();
         }
+      } else if (lightboxImageIndex !== null && e.key === 'ArrowLeft') {
+        setLightboxImageIndex((index) => index === null ? null : Math.max(0, index - 1));
+      } else if (lightboxImageIndex !== null && e.key === 'ArrowRight') {
+        setLightboxImageIndex((index) => index === null ? null : Math.min(lightboxImages.length - 1, index + 1));
       }
     };
 
@@ -35,7 +46,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose })
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [study, lightboxImage, onClose]);
+  }, [study, lightboxImageIndex, lightboxImages.length, onClose]);
 
   if (!study) return null;
 
@@ -104,8 +115,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose })
                 <span className="text-zinc-200 font-semibold">{study.role}</span>
               </div>
               <div>
-                <span className="text-zinc-500 block mb-0.5">RELEASED</span>
-                <span className="text-zinc-200 font-semibold">{study.year}</span>
+                <span className="text-zinc-500 block mb-0.5">{study.status ? "STATUS" : "RELEASED"}</span>
+                <span className="text-zinc-200 font-semibold">{study.status ?? study.year}</span>
               </div>
               <div className="col-span-2 sm:col-span-1">
                 <span className="text-zinc-500 block mb-0.5">DOMAIN</span>
@@ -129,21 +140,19 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose })
                       showcase.featured ? 'md:col-span-2' : ''
                     }`}
                   >
-                    <div className="relative group bg-zinc-950 aspect-[16/10] overflow-hidden">
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(showcase.images[0])}
+                      className="relative group block w-full bg-zinc-950 aspect-[16/10] overflow-hidden text-left"
+                      aria-label={`View ${showcase.images[0].alt} full size`}
+                    >
                       <img
                         src={showcase.images[0].src}
                         alt={showcase.images[0].alt}
                         className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
                         loading="lazy"
                       />
-                      <button
-                        onClick={() => setLightboxImage(showcase.images[0])}
-                        className="absolute bottom-3 right-3 p-2 rounded-lg bg-zinc-950/80 text-white border border-zinc-700/80 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
-                        title="View high-resolution"
-                      >
-                        <Maximize01Icon className="w-4 h-4" />
-                      </button>
-                    </div>
+                    </button>
 
                     <div className="p-5">
                       <div className="flex items-center gap-2 mb-1.5">
@@ -165,21 +174,19 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose })
               </div>
 
               {/* Main Featured Image */}
-              <div className="relative group bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800/80 aspect-[16/10]">
+              <button
+                type="button"
+                onClick={() => openLightbox(currentGalleryImages[activeImageIndex])}
+                className="relative group block w-full bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800/80 aspect-[16/10] text-left"
+                aria-label={`View ${currentGalleryImages[activeImageIndex].alt} full size`}
+              >
                 <img
                   src={currentGalleryImages[activeImageIndex].src}
                   alt={currentGalleryImages[activeImageIndex].alt}
                   className="w-full h-full object-contain bg-zinc-950"
                   loading="lazy"
                 />
-                <button
-                  onClick={() => setLightboxImage(currentGalleryImages[activeImageIndex])}
-                  className="absolute bottom-3 right-3 p-2 rounded-lg bg-zinc-950/80 text-white border border-zinc-700/80 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
-                  title="Expand preview"
-                >
-                  <Maximize01Icon className="w-4 h-4" />
-                </button>
-              </div>
+              </button>
 
               {/* Caption */}
               <p className="text-xs text-zinc-400 italic">
@@ -298,24 +305,62 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ slug, onClose })
       {/* Lightbox High-Resolution Zoom */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 z-60 bg-black/95 flex flex-col items-center justify-center p-4 cursor-pointer"
-          onClick={() => setLightboxImage(null)}
+          className="fixed inset-0 z-[60] overflow-y-auto bg-black/95 px-3 py-16 sm:px-6 cursor-zoom-out"
+          onClick={(event) => {
+            event.stopPropagation();
+            if (event.target === event.currentTarget) setLightboxImageIndex(null);
+          }}
         >
           <button
-            onClick={() => setLightboxImage(null)}
-            className="absolute top-5 right-5 p-2 rounded-full bg-zinc-800 text-white hover:bg-zinc-700"
+            onClick={() => setLightboxImageIndex(null)}
+            className="fixed top-4 right-4 sm:top-5 sm:right-5 z-[61] p-2 rounded-full bg-zinc-800 text-white hover:bg-zinc-700"
             aria-label="Close high-res preview"
           >
             <Cancel01Icon className="w-6 h-6" />
           </button>
+          <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[61] rounded-full bg-zinc-800/90 px-3 py-1 text-xs font-mono text-zinc-200" aria-live="polite">
+            {String(lightboxImageIndex! + 1).padStart(2, '0')} / {String(lightboxImages.length).padStart(2, '0')}
+          </div>
+          {lightboxImages.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setLightboxImageIndex((index) => index === null ? null : Math.max(0, index - 1));
+                }}
+                disabled={lightboxImageIndex === 0}
+                className="fixed left-2 sm:left-5 top-1/2 -translate-y-1/2 z-[61] flex h-11 w-11 items-center justify-center rounded-full bg-zinc-800/90 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-zinc-700"
+                aria-label="Previous screenshot"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setLightboxImageIndex((index) => index === null ? null : Math.min(lightboxImages.length - 1, index + 1));
+                }}
+                disabled={lightboxImageIndex === lightboxImages.length - 1}
+                className="fixed right-2 sm:right-5 top-1/2 -translate-y-1/2 z-[61] flex h-11 w-11 items-center justify-center rounded-full bg-zinc-800/90 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-zinc-700"
+                aria-label="Next screenshot"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </>
+          )}
           <img
             src={lightboxImage.src}
             alt={lightboxImage.alt}
-            className="max-w-[95vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            className="mx-auto block h-auto w-full max-w-[1200px] max-h-none object-contain rounded-lg shadow-2xl cursor-default"
             onClick={(e) => e.stopPropagation()}
           />
           {lightboxImage.caption && (
-            <p className="mt-4 text-xs sm:text-sm text-zinc-300 max-w-xl text-center">
+            <p className="mx-auto mt-4 max-w-xl text-center text-xs sm:text-sm text-zinc-300">
               {lightboxImage.caption}
             </p>
           )}

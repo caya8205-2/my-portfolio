@@ -77,6 +77,18 @@ export const About: React.FC = () => {
               <p>
                 When tackling problems, I prioritize reducing runtime friction: preferring SQLite and local caching over bloated server dependencies, writing asynchronous Rust crates to eliminate clunky external subprocesses, and implementing the Model Context Protocol (MCP) so modern AI assistants can reliably interface with application logic.
               </p>
+              <p>
+                I also contributed a fix to Hermes Agent’s multi-profile gateway routing. A maintainer cherry-picked my five commits into a salvage PR, preserved my authorship, and merged them into <code className="text-zinc-200">main</code>.{" "}
+                <a
+                  href="https://github.com/NousResearch/hermes-agent/pull/99770#event-30307697843"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-zinc-200 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white hover:decoration-zinc-300"
+                >
+                  View merged PR #99770
+                </a>
+                .
+              </p>
             </div>
           </div>
         </div>

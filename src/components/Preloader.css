@@ -1,8 +1,8 @@
 .preloader {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  background: var(--bg);
+  z-index: 10000;
+  background: #09090b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,16 +23,16 @@
 }
 
 .preloader-text {
-  font-family: var(--font-display);
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(64px, 10vw, 120px);
-  color: var(--text);
+  color: #f4f4f5;
   line-height: 1;
   transform: translateY(100%);
   animation: slideUpReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
 .preloader-dot {
-  color: var(--accent);
+  color: #d4f000;
 }
 
 @keyframes slideUpReveal {

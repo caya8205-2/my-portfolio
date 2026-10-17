@@ -31,12 +31,12 @@ export const caseStudies: Record<string, CaseStudy> = {
     name: "innertube-rs",
     eyebrow: "Rust InnerTube client library / 2026",
     year: "2026",
-    summary: "A pure Rust asynchronous port of YouTube.js (InnerTube internal API client), built to replace Node.js sidecars and heavy subprocesses across personal media tools with a fast, embeddable native library.",
+    summary: "A strict, full 1:1 Rust port of YouTube.js' InnerTube client, created to advance Noctune's roadmap toward a fully Rust app by moving its primary playback backend into Rust.",
     role: "Port author and maintainer",
     stack: ["Rust", "Tokio", "Reqwest", "Serde", "Protobuf", "YouTube.js", "InnerTube API"],
-    challenge: "Media tools in the workspace like Noctune (desktop player) and AVPull (CLI downloader) previously relied on YouTube.js running inside Node.js/Bun sidecars or heavy yt-dlp subprocesses. This introduced cold-start delays, extra memory overhead, and packaging complexity for desktop distribution.",
-    approach: "Ported YouTube.js architecture into idiomatic, asynchronous Rust using Tokio and Reqwest. Implemented core InnerTube endpoints (Player, Browse, Search, Next, Account), strongly typed response parsers, signature and n-token deciphering algorithms, and streaming data helpers for format selection and segmented downloads.",
-    outcome: "A lightweight, embeddable native Rust crate that directly powers Noctune and AVPull with fast responses, minimal memory footprint, and zero external runtime dependencies.",
+    challenge: "At the time, most Rust YouTube client libraries I found were outdated and could not serve as a dependable base for Noctune's planned Rust backend. Since YouTube.js already powered Noctune's primary playback path, I chose to port that client directly, preserving its behavior and API coverage one to one.",
+    approach: "Ported YouTube.js directly to Rust with strict 1:1 parity: each supported behavior is carried across one to one, with no symlink shortcuts and no tolerated differences from the reference. Tokio and Reqwest provide asynchronous execution.",
+    outcome: "A Rust InnerTube client that provides the implementation path for Noctune's backend migration while preserving YouTube.js behavior. The goal is to move toward a fully Rust app and improve execution speed.",
     images: [],
     links: [
       { label: "View source ↗", href: "https://github.com/caya8205-2/innertube-rs" },
@@ -46,12 +46,12 @@ export const caseStudies: Record<string, CaseStudy> = {
     name: "Noctune",
     eyebrow: "Desktop music system / 2026",
     year: "2026",
-    summary: "A local-first desktop music player made for uninterrupted listening: discover with Spotify, play through YouTube, and keep the next track ready before the current one ends.",
+    summary: "Noctune began with a personal constraint: I wanted to game on a RAM-limited PC while listening to Neuro-sama karaoke clips—mostly found on YouTube—without adding another browser window to my always-open tabs. It grew into a local-first desktop player that pairs Spotify metadata with YouTube playback.",
     role: "Product, engineering, and interaction design",
     stack: ["React", "TypeScript", "Tauri", "Rust", "Fastify", "SQLite", "Spotify Web API", "youtubei.js"],
-    challenge: "Streaming playback often fails at the seams: discovery, resolving a playable source, queueing, and caching are usually handled as separate problems. Noctune treats them as one continuous listening experience.",
-    approach: "The app combines local persistence with background prefetch, cache learning, smart autoqueue, lyrics, and a diversified Nightly Mix. The desktop shell keeps the experience quick and native while the backend handles resolution and playback intelligence.",
-    outcome: "A deliberate, personal music workspace that makes the technical complexity behind playback almost invisible.",
+    challenge: "My browser already had many tabs kept open, leaving less memory for games; adding browser-based music playback made that worse. Ads on Spotify and YouTube interrupted listening, while the Neuro-sama karaoke clips I wanted were on YouTube rather than Spotify. Spotify's Playback SDK also required Premium and limited free playback to 30-second previews, which did not fit the experience I wanted to build.",
+    approach: "Noctune uses Spotify Web API for rich track metadata and discovery, then matches tracks to YouTube search results and resolves playback there. This brings official songs and YouTube-only karaoke clips into one queue without relying on Spotify playback. A Tauri desktop shell, local caching, background prefetch, synced lyrics, and smart autoqueue keep the experience out of a tab-heavy browser. Spotify API access began tightening in February 2026 and reached my long-standing app registration in March; I maintained Premium and the app's configured API access so listeners could use the metadata features without each needing their own Premium plan.",
+    outcome: "A desktop player shaped around the original need: keep the browser closed, leave more memory for gaming, and listen to both Spotify-discovered tracks and YouTube-only karaoke clips from one place.",
     images: [
       { src: "/noctune/noctune-full-player.webp", alt: "Noctune full player view", caption: "The listening surface — playback, queue, and context in one focused view." },
       { src: "/noctune/noctune-wrapped.webp", alt: "Noctune Wrapped listening statistics", caption: "Wrapped turns listening history into a focused personal listening recap — plays, hours, artists, tracks, and daily activity." },
@@ -65,7 +65,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
   },
   "erp-tumbuh": {
-    name: "ERP Tumbuh",
+    name: "ERP Prime",
     eyebrow: "Internal operational platform / 2026",
     year: "2026",
     summary: "A multi-company ERP foundation for the work that must be correct: permissions, inventory movement, purchasing, accounts payable, payments, and accounting records.",
@@ -363,7 +363,7 @@ export default function ProjectCaseStudy({ slug, onBack }: { slug: string; onBac
 
 function ShowcaseGallery({ showcases, onPreview }: { showcases: Showcase[]; onPreview: (images: Screenshot[], index: number) => void }) {
   return (
-    <section className="showcase-grid" aria-label="ERP Tumbuh product showcase">
+    <section className="showcase-grid" aria-label="ERP Prime product showcase">
       {showcases.map((showcase, index) => <ShowcaseCard key={showcase.title} showcase={showcase} number={index + 1} onPreview={onPreview} />)}
     </section>
   );

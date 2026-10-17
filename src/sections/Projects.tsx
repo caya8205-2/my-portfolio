@@ -5,7 +5,7 @@ const projects = [
   {
     num: "01",
     name: "innertube-rs",
-    desc: "Asynchronous, pure Rust port of YouTube.js (InnerTube internal API client). Built to eliminate Node.js runtime overhead and heavy CLI subprocesses across local media tools like Noctune and AVPull, providing native format resolution, decipher algorithms, feed parsing, and stream handling.",
+    desc: "A strict 1:1 Rust port of YouTube.js' InnerTube client, created for Noctune's roadmap to move its primary playback backend into Rust and pursue a fully Rust app.",
     tags: ["Rust", "YouTube InnerTube", "YouTube.js Port", "Async Tokio", "Reqwest", "Cipher Decipher", "Streaming", "Open Source", "Crate"],
     status: "Personal / Open Source",
     year: "2026",
@@ -20,7 +20,7 @@ const projects = [
   {
     num: "02",
     name: "Noctune",
-    desc: "Local-first desktop music player that combines Spotify discovery, YouTube stream playback, synced lyrics, personalized Nightly Mix recommendations, smart autoqueue, cache learning, and background prefetch in a polished Tauri app.",
+    desc: "A local-first desktop player born from a simple goal: game on a RAM-limited PC while listening to Neuro-sama karaoke clips without adding another browser window. Noctune pairs Spotify metadata with YouTube playback in a native Tauri app.",
     tags: ["Typescript", "React", "Vite", "Tailwind", "Node.js", "Fastify", "Rust", "Tauri", "SQLite", "youtubei.js", "yt-dlp", "Spotify Web API", "LRClib", "Music Player", "Prefetch", "Smart Autoqueue", "Cache Learning", "Software Engineering"],
     status: "Personal",
     year: "2026",
@@ -34,7 +34,7 @@ const projects = [
   },
   {
     num: "03",
-    name: "ERP Tumbuh",
+    name: "ERP Prime",
     desc: "Internal multi-company ERP platform for managing companies, branches, users, permissions, inventory, purchasing, accounts payable, payment flows, and accounting foundations. Built with financial-book isolation, audit trails, security hardening, and a modular architecture ready for operational business modules.",
     tags: ["Laravel", "PHP", "MySQL", "Blade", "Tailwind CSS", "Alpine.js", "Vite", "Multi-company", "Inventory", "Purchasing", "Accounting", "Role-based Access"],
     status: "Internal / Team Project",
