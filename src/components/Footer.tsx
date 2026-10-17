@@ -1,50 +1,46 @@
-import "./Footer.css";
+import React from 'react';
+import { ArrowUp01Icon, GithubIcon } from 'hugeicons-react';
+import { PROFILE_DATA } from '../data/portfolioData';
 
-const links = ["about", "skills", "approach", "projects", "contact"];
-const social = [
-  { label: "GitHub", href: "https://github.com/caya8205-2" },
-  { label: "Email", href: "mailto:yannz.2005@gmail.com" },
-];
-
-export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a href="#hero" onClick={scrollToTop} className="footer-logo">HR<span>.</span></a>
-            <p className="footer-desc">Crafting interfaces and systems that actually work.</p>
-          </div>
-
-          <div className="footer-links">
-            <div className="footer-col">
-              <h4>Navigation</h4>
-              <ul>
-                {links.map(l => (
-                  <li key={l}><a href={`#${l}`} data-cursor>{l}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Connect</h4>
-              <ul>
-                {social.map(s => (
-                  <li key={s.label}>
-                    <a href={s.href} target="_blank" rel="noreferrer" data-cursor>{s.label} ↗</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <footer className="border-t border-zinc-800/80 bg-zinc-950 py-12 text-zinc-500">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono">
+        {/* Left side */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-4 text-center sm:text-left">
+          <span className="text-zinc-300 font-bold uppercase tracking-wider">
+            {PROFILE_DATA.name}
+          </span>
+          <span className="hidden sm:inline" aria-hidden="true">·</span>
+          <span>Designed &amp; Built in {PROFILE_DATA.location}</span>
         </div>
 
-        <div className="footer-bottom">
-          <p>© 2026 Heryana Romansyah P. Built with React + Vite.</p>
-          <button onClick={scrollToTop} className="footer-to-top" data-cursor>Back to top ↑</button>
+        {/* Center / Right actions */}
+        <div className="flex items-center gap-6">
+          <a
+            href={PROFILE_DATA.github}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-zinc-200 transition-colors inline-flex items-center gap-1.5"
+          >
+            <GithubIcon className="w-3.5 h-3.5" />
+            <span>GitHub</span>
+          </a>
+
+          <button
+            onClick={scrollToTop}
+            className="hover:text-zinc-200 transition-colors inline-flex items-center gap-1.5"
+            aria-label="Back to top of page"
+          >
+            <span>Back to top</span>
+            <ArrowUp01Icon className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </footer>
   );
-}
+};

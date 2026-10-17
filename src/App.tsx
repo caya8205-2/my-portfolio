@@ -1,78 +1,88 @@
 import { useEffect, useState } from "react";
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Skills from "./sections/Skills";
-import Approach from "./sections/Approach";
-import Projects from "./sections/Projects";
-import ProjectCaseStudy from "./sections/ProjectCaseStudy";
-import GitActivity from "./sections/GitActivity";
-import Contact from "./sections/Contact";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { About } from "./components/About";
+import { CaseStudyModal } from "./components/CaseStudyModal";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
+import { GitActivity } from "./components/GitActivity";
+import { Hero } from "./components/Hero";
+import { Navbar } from "./components/Navbar";
+import { ProjectsBento } from "./components/ProjectsBento";
+import { TechStack } from "./components/TechStack";
 import BackToTop from "./components/BackToTop";
 import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { CASE_STUDIES } from "./data/portfolioData";
+
+function getInitialSlug(): string | null {
+  const pathSlug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
+  if (pathSlug && CASE_STUDIES[pathSlug]) return pathSlug;
+
+  const hashSlug = window.location.hash.match(/^#case-study-([a-z0-9-]+)$/)?.[1];
+  return hashSlug && CASE_STUDIES[hashSlug] ? hashSlug : null;
+}
 
 export default function App() {
-  const getCaseStudySlug = () => window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
-  const [caseStudySlug, setCaseStudySlug] = useState(getCaseStudySlug);
+  const [caseStudySlug, setCaseStudySlug] = useState<string | null>(getInitialSlug);
   const [showPreloader] = useState(() => {
     const seenKey = "portfolio-preloader-seen";
     const hasSeenPreloader = sessionStorage.getItem(seenKey) === "true";
     sessionStorage.setItem(seenKey, "true");
-    return !hasSeenPreloader && !getCaseStudySlug();
+    return !hasSeenPreloader && !getInitialSlug();
   });
 
   useEffect(() => {
-    const onPopState = () => setCaseStudySlug(getCaseStudySlug());
-    window.addEventListener("popstate", onPopState);
-    return () => window.removeEventListener("popstate", onPopState);
+    const handleHistoryChange = () => setCaseStudySlug(getInitialSlug());
+    window.addEventListener("popstate", handleHistoryChange);
+    window.addEventListener("hashchange", handleHistoryChange);
+    return () => {
+      window.removeEventListener("popstate", handleHistoryChange);
+      window.removeEventListener("hashchange", handleHistoryChange);
+    };
   }, []);
 
-  const returnToProjects = () => {
+  const openCaseStudy = (slug: string) => {
+    window.history.pushState({}, "", `/projects/${slug}`);
+    setCaseStudySlug(slug);
+  };
+
+  const closeCaseStudy = () => {
     window.history.pushState({}, "", "/#projects");
-    setCaseStudySlug(undefined);
+    setCaseStudySlug(null);
     requestAnimationFrame(() => document.getElementById("projects")?.scrollIntoView());
   };
 
-  const openCaseStudy = (path: string) => {
-    window.history.pushState({}, "", path);
-    setCaseStudySlug(getCaseStudySlug());
-    window.scrollTo({ top: 0 });
+  const navigateToSection = (sectionId: string) => {
+    if (caseStudySlug) {
+      window.history.pushState({}, "", `/#${sectionId}`);
+      setCaseStudySlug(null);
+    }
+    requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    });
   };
 
-  if (caseStudySlug) {
-    return (
-      <>
-        {showPreloader && <Preloader />}
-        <Cursor />
-        <Navbar />
-        <ProjectCaseStudy slug={caseStudySlug} onBack={returnToProjects} />
-        <BackToTop />
-      </>
-    );
-  }
-
   return (
-    <>
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-white selection:text-zinc-950 font-sans antialiased">
       {showPreloader && <Preloader />}
       <Analytics />
       <SpeedInsights />
       <Cursor />
-      <Navbar />
+      <Navbar onNavigate={navigateToSection} />
       <main>
         <Hero />
         <About />
-        <Skills />
-        <Approach />
-        <Projects onCaseStudy={openCaseStudy} />
+        <TechStack />
+        <ProjectsBento onOpenCaseStudy={openCaseStudy} />
         <GitActivity />
         <Contact />
       </main>
       <Footer />
       <BackToTop />
-    </>
+      {caseStudySlug && (
+        <CaseStudyModal slug={caseStudySlug} onClose={closeCaseStudy} />
+      )}
+    </div>
   );
 }
