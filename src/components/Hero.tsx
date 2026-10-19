@@ -49,12 +49,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
               {/* Clean Kicker */}
-              <div className="flex items-center gap-2.5 text-xs text-zinc-400 mb-6 font-medium">
+              <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-400 mb-6 font-medium">
                 <span className="text-zinc-200">00</span>
                 <span aria-hidden="true" className="text-zinc-600">/</span>
-                <span className="tracking-wide uppercase text-zinc-300">Software Engineer — R&amp;D</span>
-                <span aria-hidden="true" className="text-zinc-600">·</span>
-                <span className="text-zinc-400">{PROFILE_DATA.company}</span>
+                <span className="tracking-wide uppercase text-zinc-300">{PROFILE_DATA.title}</span>
               </div>
 
               {/* Display Headline */}
@@ -138,9 +136,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
                 {/* Status Items */}
                 <div className="space-y-4 mb-6">
                   <div>
-                    <div className="text-[11px] font-mono uppercase text-zinc-400 tracking-wider mb-1">Current Research &amp; Role</div>
+                    <div className="text-[11px] font-mono uppercase text-zinc-400 tracking-wider mb-1">Current Position</div>
                     <div className="text-sm font-semibold text-zinc-100">{PROFILE_DATA.title}</div>
-                    <div className="text-xs text-zinc-400 mt-0.5">Focusing on high-throughput media engines, local-first SQLite architectures, and agentic workflows.</div>
+                    <div className="text-xs text-zinc-400 mt-0.5">Building and maintaining internal business systems, including ERP workflows and agent integrations.</div>
                   </div>
 
                   <div>
@@ -174,7 +172,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
 
               {/* Bottom footer inside card */}
               <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
-                <span>Availability: Open to select R&amp;D roles</span>
+                <span>Availability: Open to select engineering roles</span>
                 <span className="text-zinc-300 font-medium">Yogyakarta</span>
               </div>
             </div>

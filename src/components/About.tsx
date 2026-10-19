@@ -72,7 +72,7 @@ export const About: React.FC = () => {
             </div>
             <div className="lg:col-span-8 space-y-4 text-sm text-zinc-400 leading-relaxed">
               <p>
-                Currently operating as <strong className="text-zinc-200">Software Engineer — R&amp;D at Banyumedia Digital</strong>. My daily work revolves around creating durable internal ERP engines with multi-tenant company barriers, developing local-first audio tooling, and researching autonomous agent orchestration.
+                I work as a <strong className="text-zinc-200">Software Engineer at Banyumedia Digital</strong>. My work spans durable internal ERP systems with multi-company boundaries, local-first audio tooling, and agentic integrations.
               </p>
               <p>
                 When tackling problems, I prioritize reducing runtime friction: preferring SQLite and local caching over bloated server dependencies, writing asynchronous Rust crates to eliminate clunky external subprocesses, and implementing the Model Context Protocol (MCP) so modern AI assistants can reliably interface with application logic.

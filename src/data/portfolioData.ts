@@ -70,7 +70,7 @@ export interface TechItem {
 
 export const PROFILE_DATA = {
   name: "Heryana Romansyah P.",
-  title: "Software Engineer — R&D",
+  title: "Software Engineer at Banyumedia Digital",
   company: "Banyumedia Digital",
   location: "Yogyakarta, ID",
   timezone: "WIB (UTC+7)",
