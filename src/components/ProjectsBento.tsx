@@ -186,6 +186,28 @@ export const ProjectsBento: React.FC<ProjectsBentoProps> = ({ onOpenCaseStudy })
                           <span>Live Site</span>
                         </a>
                       )}
+                      {project.links.crates && (
+                        <a
+                          href={project.links.crates}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-white transition-colors inline-flex items-center gap-1"
+                        >
+                          <LinkSquare02Icon className="w-3.5 h-3.5" />
+                          <span>Crates</span>
+                        </a>
+                      )}
+                      {project.links.npm && (
+                        <a
+                          href={project.links.npm}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-white transition-colors inline-flex items-center gap-1"
+                        >
+                          <LinkSquare02Icon className="w-3.5 h-3.5" />
+                          <span>npm</span>
+                        </a>
+                      )}
                       {project.links.github && (
                         <a
                           href={project.links.github}

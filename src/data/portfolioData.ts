@@ -1,6 +1,8 @@
 export interface ProjectLink {
   website?: string;
   github?: string;
+  crates?: string;
+  npm?: string;
   playstore?: string;
   appstore?: string;
 }
@@ -186,7 +188,8 @@ export const PROJECTS: Project[] = [
     status: "Featured Production System",
     year: "2026",
     links: {
-      github: "https://github.com/caya8205-2/innertube-rs"
+      github: "https://github.com/caya8205-2/innertube-rs",
+      crates: "https://crates.io/crates/innertube-rs"
     },
     caseStudy: "innertube-rs",
     bentoSpan: "standard",
@@ -241,6 +244,7 @@ export const PROJECTS: Project[] = [
     year: "2026",
     links: {
       website: "https://caya8205-2.github.io/avpull",
+      npm: "https://www.npmjs.com/package/avpull",
       github: "https://github.com/caya8205-2/avpull"
     },
     caseStudy: "avpull",
@@ -458,7 +462,8 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     images: [],
     links: [
-      { label: "View Source on GitHub ↗", href: "https://github.com/caya8205-2/innertube-rs" }
+      { label: "View Source on GitHub ↗", href: "https://github.com/caya8205-2/innertube-rs" },
+      { label: "View on crates.io ↗", href: "https://crates.io/crates/innertube-rs" }
     ]
   },
   "erp-tumbuh": {
@@ -474,55 +479,66 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     outcome: "A hardened, production-ready internal platform that powers day-to-day enterprise operations with reliable accounting ledger integrity.",
     architectureHighlights: [
       { title: "Financial-Book Isolation", detail: "Strict database scoping ensures books and journal entries never cross company boundaries." },
-      { title: "End-to-End Workflow Pipeline", detail: "Automated progression from price quotation to delivery logistics and formal invoicing." },
-      { title: "Auditing & Traceability", detail: "Every state transition and permission change is recorded in immutable audit logs." }
+      { title: "Controlled Sales Workflow", detail: "Sales quotations, orders, delivery documents, and invoices move through explicit user actions." },
+      { title: "Auditing & Traceability", detail: "Activity records make important operational changes easier to trace." },
+      { title: "Chat-Based ERP Operations", detail: "Users can manage supported business workflows through chat with the Hermes agent. It accesses ERP through the dedicated MCP adapter under the linked user's account, so available actions follow that account's role, permissions, and enabled capabilities." }
     ],
     images: [],
     showcases: [
       {
-        title: "Setup Dashboard",
-        description: "Operational launchpad tracking company configuration, quick actions, and setup status.",
-        images: [{ src: "/erp-tumbuh/erp-setup-dashboard.webp", alt: "ERP setup dashboard" }],
+        title: "Setup Dashboard & Go-Live",
+        description: "Track setup readiness from the dashboard and complete the guided checks before launch.",
+        images: [
+          { src: "/erp-prime/prime-setup-dashboard.webp", alt: "ERP Prime setup dashboard" },
+          { src: "/erp-prime/prime-golive.webp", alt: "ERP Prime go-live setup" }
+        ],
         featured: true
       },
       {
-        title: "Go Live & Financial Books",
-        description: "Guided go-live flow establishing fiscal years, ledger boundaries, and account charts.",
+        title: "Financial Book & Bank Account",
+        description: "Set up the financial book and connect a bank account for the company’s finance operations.",
         images: [
-          { src: "/erp-tumbuh/erp-golive.webp", alt: "ERP go live setup" },
-          { src: "/erp-tumbuh/erp-financial-book.webp", alt: "ERP financial book setup" }
+          { src: "/erp-prime/prime-financial-book.webp", alt: "ERP Prime financial book setup" },
+          { src: "/erp-prime/prime-create-bank-account.webp", alt: "ERP Prime bank account setup" }
         ]
       },
       {
-        title: "Business Identity Setup",
-        description: "Multi-step configuration capturing corporate legal names, tax IDs, and branch locations.",
-        images: [{ src: "/erp-tumbuh/erp-identitas-bisnis.webp", alt: "ERP business identity setup" }]
+        title: "Business Identity",
+        description: "Configure the business identity used across customer-facing documents and enabled operations.",
+        images: [{ src: "/erp-prime/prime-create-business-identity.webp", alt: "ERP Prime business identity setup" }]
       },
       {
-        title: "Supplier Quotation (SPH)",
-        description: "Structured workflow creating supplier price quotations with real-time tax calculations.",
+        title: "Sales Quotation (SPH)",
+        description: "Prepare a customer-facing price offer, review its draft, and check the print preview before sending.",
         images: [
-          { src: "/erp-tumbuh/erp-create-sph.webp", alt: "ERP create supplier price quotation" },
-          { src: "/erp-tumbuh/erp-sph-draft.webp", alt: "ERP supplier price quotation list" },
-          { src: "/erp-tumbuh/erp-sph-preview.webp", alt: "ERP supplier price quotation print preview" }
+          { src: "/erp-prime/prime-SPH-create.webp", alt: "ERP Prime create a sales quotation" },
+          { src: "/erp-prime/prime-SPH-draft.webp", alt: "ERP Prime sales quotation draft" },
+          { src: "/erp-prime/prime-SPH-preview.webp", alt: "ERP Prime sales quotation preview" }
         ]
       },
       {
         title: "Sales & Delivery Orders",
-        description: "Seamless progression from confirmed sales order to warehouse packaging and shipment manifest.",
+        description: "Prepare sales and delivery order documents to carry customer and item details through fulfillment.",
         images: [
-          { src: "/erp-tumbuh/erp-create-so.webp", alt: "ERP create sales order" },
-          { src: "/erp-tumbuh/erp-create-do.webp", alt: "ERP create delivery order" },
-          { src: "/erp-tumbuh/erp-do-preview.webp", alt: "ERP delivery order print preview" }
+          { src: "/erp-prime/prime-SO-create.webp", alt: "ERP Prime create a sales order" },
+          { src: "/erp-prime/prime-SO-draft.webp", alt: "ERP Prime sales order draft" },
+          { src: "/erp-prime/prime-DO-create.webp", alt: "ERP Prime create a delivery order" },
+          { src: "/erp-prime/prime-DO-draft.webp", alt: "ERP Prime delivery order draft" }
         ]
       },
       {
-        title: "Commercial Invoicing",
-        description: "Multi-step invoice generation with accounting integration and printable tax receipts.",
+        title: "Customer Invoice",
+        description: "Prepare and review a customer invoice before issuing the final billing document.",
         images: [
-          { src: "/erp-tumbuh/erp-create-invoice.webp", alt: "ERP create invoice step 1" },
-          { src: "/erp-tumbuh/erp-create-invoice-2.webp", alt: "ERP create invoice step 2" },
-          { src: "/erp-tumbuh/erp-invoice-preview.webp", alt: "ERP customer invoice print preview" }
+          { src: "/erp-prime/prime-INV-create.webp", alt: "ERP Prime create a customer invoice" },
+          { src: "/erp-prime/prime-INV-draft.webp", alt: "ERP Prime customer invoice draft" }
+        ]
+      },
+      {
+        title: "Agent Onboarding",
+        description: "The invitation link opens the ERP bot chat and passes its onboarding token to the agent. Through ERP's dedicated MCP adapter, the agent guides setup and provisions the workspace after the owner reviews and confirms. Existing users can pair manually by entering the bot's one-time code in their ERP profile.",
+        images: [
+          { src: "/erp-prime/prime-agent-onboard-setup.webp", alt: "ERP Prime agent onboarding invitations and setup workbench" }
         ]
       }
     ],
@@ -551,6 +567,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     links: [
       { label: "Visit Landing Page ↗", href: "https://caya8205-2.github.io/avpull" },
+      { label: "View on npm ↗", href: "https://www.npmjs.com/package/avpull" },
       { label: "View Source on GitHub ↗", href: "https://github.com/caya8205-2/avpull" }
     ]
   },

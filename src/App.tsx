@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { About } from "./components/About";
@@ -24,6 +24,7 @@ function getInitialSlug(): string | null {
 
 export default function App() {
   const [caseStudySlug, setCaseStudySlug] = useState<string | null>(getInitialSlug);
+  const projectScrollY = useRef<number | null>(null);
   const [showPreloader] = useState(() => {
     const seenKey = "portfolio-preloader-seen";
     const hasSeenPreloader = sessionStorage.getItem(seenKey) === "true";
@@ -42,14 +43,23 @@ export default function App() {
   }, []);
 
   const openCaseStudy = (slug: string) => {
+    projectScrollY.current = window.scrollY;
     window.history.pushState({}, "", `/projects/${slug}`);
     setCaseStudySlug(slug);
   };
 
   const closeCaseStudy = () => {
+    const previousScrollY = projectScrollY.current;
+    projectScrollY.current = null;
     window.history.pushState({}, "", "/#projects");
     setCaseStudySlug(null);
-    requestAnimationFrame(() => document.getElementById("projects")?.scrollIntoView());
+    requestAnimationFrame(() => {
+      if (previousScrollY === null) {
+        document.getElementById("projects")?.scrollIntoView();
+      } else {
+        window.scrollTo({ top: previousScrollY, behavior: "instant" });
+      }
+    });
   };
 
   const navigateToSection = (sectionId: string) => {
